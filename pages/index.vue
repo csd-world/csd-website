@@ -1,17 +1,23 @@
 <template>
-  <full-page :options="options">
-    <div 
-      class="section section01"
-      :style="{
-        'box-shadow': shadow ? 'inset 0 0 5rem rgba(0, 0, 0, .5)' : 'none'
-      }">
+  <full-page :options="options" :style="cssProps">
+    <div class="section section01">
       <div class="section-wrapper">
         <Section01 />
       </div>
     </div>
     <div class="section section02">
-      <div>
+      <div class="section-wrapper">
         <Section02 />
+      </div>
+    </div>
+    <div class="section section03">
+      <div class="section-wrapper">
+        <Section03 />
+      </div>
+    </div>
+    <div class="section section04">
+      <div class="section-wrapper">
+        <Section04 />
       </div>
     </div>
   </full-page>
@@ -24,8 +30,8 @@ export default Vue.extend({
   data() {
     return {
       options: {
-        anchors: ['1', '2'],
-        sectionsColor: ['#4e54c8', '#8f94fb'],
+        anchors: ['1', '2', '3', '4'],
+        sectionsColor: ['#4e54c8', '#8f94fb', '#8f94fb', '#8f94fb'],
         onLeave: this.onLeave,
         afterLoad: this.afterLoad
       },
@@ -40,13 +46,20 @@ export default Vue.extend({
     afterLoad(origin, destination, direction) {
       if (destination.index === 0) this.shadow = true
     }
+  },
+  computed: {
+    cssProps() {
+      return {
+        '--inner-shadow': this.shadow ? 'inset 0 0 5rem rgba(0, 0, 0, .5)' : 'none'
+      }
+    }
   }
 })
 </script>
 
 <style lang="postcss" scoped>
   .section-wrapper {
-    @apply flex justify-center items-center;
+    @apply container mx-auto;
   }
 
   .section01 {

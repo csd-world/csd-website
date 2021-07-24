@@ -1,9 +1,20 @@
 body {
   transition: background-color 1s ease;
+  color: white
 }
 
 h1 {
   @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl font-bold relative z-10 inline-block;
+}
+
+h2::before {
+  content: '';
+  z-index: -10;
+  @apply w-full absolute h-6 -bottom-3 bg-blue-600;
 }
 
 /* ICONS */
