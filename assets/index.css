@@ -14,7 +14,7 @@ h2 {
 h2::before {
   content: '';
   z-index: -10;
-  @apply w-full absolute h-6 -bottom-3 bg-blue-600;
+  @apply w-full absolute h-6 -bottom-2 bg-blue-600;
 }
 
 /* ICONS */
