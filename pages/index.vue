@@ -1,5 +1,6 @@
 <template>
   <div class="relative">
+    <Navigation />
     <full-page :options="options" :style="cssProps">
       <div class="section section01">
         <div class="section-wrapper">
@@ -27,6 +28,7 @@
 
 <script>
 import Vue from 'vue'
+import Navigation from '~/components/Navigation.vue'
 
 export default Vue.extend({
   data() {

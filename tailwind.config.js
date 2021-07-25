@@ -20,7 +20,14 @@ module.exports = {
           primary: {
             DEFAULT: '#5222d0',
             darker: darken('#5222d0', 0.05)
+          },
+          info: {
+            DEFAULT: 'rgba(0, 0, 0, 0.2)',
+            darker: 'rgba(0, 0, 0, 0.25)'
           }
+        },
+        minWidth: {
+          '32': '8rem'
         }
       }
     }

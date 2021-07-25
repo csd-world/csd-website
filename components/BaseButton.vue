@@ -4,12 +4,16 @@
     :href="link">
     <button
       :class="{
-        ['hover:bg-primary-darker bg-' + color]: !!color,
+        ['hover:bg-' + color + '-darker bg-' + color]: !!color,
         ['border-' + border]: true,
         ['bg-black bg-opacity-0 hover:bg-opacity-5']: !!!color
       }"
-      class="box-border h-12 w-32 rounded-full space-x-1">
-      <div>
+      class="box-border h-12 min-w-32 rounded-full">
+      <div
+        :class="{
+          'mx-5': true
+        }"
+        class="space-x-1">
         <span
           v-if="!!icon"
           class="iconfont"
@@ -42,6 +46,6 @@ export default {
       type: String,
       required: true
     }
-  }
+  },
 }
 </script>
