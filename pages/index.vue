@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <full-page :options="options" :style="cssProps">
       <div class="section section01">
         <div class="section-wrapper">
