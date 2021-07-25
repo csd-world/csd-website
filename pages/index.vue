@@ -1,26 +1,28 @@
 <template>
-  <full-page :options="options" :style="cssProps">
-    <div class="section section01">
-      <div class="section-wrapper">
-        <Section01 />
+  <div>
+    <full-page :options="options" :style="cssProps">
+      <div class="section section01">
+        <div class="section-wrapper">
+          <Section01 />
+        </div>
       </div>
-    </div>
-    <div class="section section02">
-      <div class="section-wrapper">
-        <Section02 />
+      <div class="section section02">
+        <div class="section-wrapper">
+          <Section02 />
+        </div>
       </div>
-    </div>
-    <div class="section section03">
-      <div class="section-wrapper">
-        <Section03 />
+      <div class="section section03">
+        <div class="section-wrapper">
+          <Section03 />
+        </div>
       </div>
-    </div>
-    <div class="section section04">
-      <div class="section-wrapper">
-        <Section04 />
+      <div class="section section04">
+        <div class="section-wrapper">
+          <Section04 />
+        </div>
       </div>
-    </div>
-  </full-page>
+    </full-page>
+  </div>
 </template>
 
 <script>
@@ -34,6 +36,7 @@ export default Vue.extend({
         sectionsColor: ['#4e54c8', '#8f94fb', '#8f94fb', '#8f94fb'],
         navigation: true,
         navigationTooltips: ['欢迎加入软件部', '一个自由的技术社团', '一群充满创造力的人', '你也可以成为技术达人'],
+	menu: '#myMenu',
         onLeave: this.onLeave,
         afterLoad: this.afterLoad
       },

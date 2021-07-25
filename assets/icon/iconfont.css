@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2698146 */
+  src: url('iconfont.woff2?t=1627135724475') format('woff2'),
+       url('iconfont.woff?t=1627135724475') format('woff'),
+       url('iconfont.ttf?t=1627135724475') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-android:before {
+  content: "\e60e";
+}
+
+.icon-web:before {
+  content: "\e935";
+}
+
+.icon-AI:before {
+  content: "\e608";
+}
+
+.icon-Game:before {
+  content: "\e61f";
+}
+
+.icon-python:before {
+  content: "\f216";
+}
+
+.icon-down:before {
+  content: "\e72d";
+}
+
+.icon-github:before {
+  content: "\e620";
+}
+
+.icon-java:before {
+  content: "\e623";
+}
+
+.icon-js:before {
+  content: "\e600";
+}
+
+.icon-Cyuyan:before {
+  content: "\e61a";
+}
+
+.icon-cyuyan:before {
+  content: "\e61b";
+}
+
+.icon-QQ:before {
+  content: "\e62b";
+}
+
