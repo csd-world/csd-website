@@ -1,28 +1,30 @@
 <template>
   <div class="relative">
     <Navigation />
-    <full-page :options="options" :style="cssProps">
-      <div class="section section01">
-        <div class="section-wrapper">
-          <Section01 />
+    <no-ssr>
+      <full-page :options="options" :style="cssProps">
+        <div class="section section01">
+          <div class="section-wrapper">
+            <Section01 />
+          </div>
         </div>
-      </div>
-      <div class="section section02">
-        <div class="section-wrapper">
-          <Section02 />
+        <div class="section section02">
+          <div class="section-wrapper">
+            <Section02 />
+          </div>
         </div>
-      </div>
-      <div class="section section03">
-        <div class="section-wrapper">
-          <Section03 />
+        <div class="section section03">
+          <div class="section-wrapper">
+            <Section03 />
+          </div>
         </div>
-      </div>
-      <div class="section section04">
-        <div class="section-wrapper">
-          <Section04 />
+        <div class="section section04">
+          <div class="section-wrapper">
+            <Section04 />
+          </div>
         </div>
-      </div>
-    </full-page>
+      </full-page>
+    </no-ssr>
   </div>
 </template>
 
@@ -56,9 +58,9 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
-  /* .section {
+  .section {
     overflow: hidden;
-  } */
+  }
 
   .section-wrapper {
     @apply container mx-auto;
