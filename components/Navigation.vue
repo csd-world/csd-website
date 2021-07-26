@@ -46,7 +46,7 @@ export default {
   }
 
   .nav-item a:hover {
-    color: #ffffffbb;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .nav-item a:hover::after {

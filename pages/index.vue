@@ -65,6 +65,10 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
+  /* .section {
+    overflow: hidden;
+  } */
+
   .section-wrapper {
     @apply container mx-auto;
   }

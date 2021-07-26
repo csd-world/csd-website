@@ -4,16 +4,23 @@ const Color = require('color')
 const darken = (clr, val) => Color(clr).darken(val).rgb().string()
 
 module.exports = {
+  mode: 'jit',
   plugins: [
     textShadow
   ],
     theme: {
       extend: {
         borderRadius: {
-          '1/2': '50%'
+          '1/2': '50%',
+          '1/4': '25%'
         },
         padding: {
           '1/2': '50%',
+          '1/4': '25%',
+          '1/6': '16.667%',
+          '1/8': '12.5%',
+          '1/10': '10%',
+          '1/12': '8.333%',
           'full': '100%',
         },
         colors: {
