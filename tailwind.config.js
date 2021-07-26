@@ -10,6 +10,9 @@ module.exports = {
   ],
     theme: {
       extend: {
+        transitionProperty: {
+          'height': 'height'
+        },
         borderRadius: {
           '1/2': '50%',
           '1/4': '25%'

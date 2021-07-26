@@ -1,28 +1,52 @@
 <template>
-  <div id="navigation" class="w-full fixed z-50 top-4 right-5">
-    <ul class="text-shadow-md flex justify-end items-center space-x-8">
-      <li class="nav-item">
-        <a 
-          href="https://wiki.dsstudio.tech/w/%E9%A6%96%E9%A1%B5">
-          软件部 WIKI  
-        </a>
-      </li>
-      <li>
-        <BaseButton
-          :color="'info'"
-          :icon="'github'"
-          :link="'https://github.com/Z233/csd-website'">
-          <span>在 Github 上查看</span>
-        </BaseButton>
-      </li>
-    </ul>
+  <div id="navigation" class="w-full fixed z-[200] top-4 right-5 flex justify-end">
+    <div class="w-6 cursor-pointer sm:hidden" @click="open = !open">
+      <div class="h-1 py-2 box-content bg-clip-content w-full relative opacity-50 text-white bg-white before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all"
+      :class="{
+        [
+          'before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
+          'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' + 
+          'bg-transparent !text-white z-10 opacity-100'
+        ]: open
+        }" />
+    </div>
+    <div
+      class="fixed inset-0 bg-primary-darker h-0 opacity-0 transition-all sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent"
+      :class="{ '!h-full !opacity-100': open }">
+      <ul
+        class="absolute top-1/2 w-full text-shadow-md flex-col sm:justify-end items-center space-x-8 space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static"
+        :class="{ '!flex': open }">
+        <li>
+        </li>
+        <li class="nav-item">
+          <a
+            target="_blank"
+            href="https://wiki.dsstudio.tech/w/%E9%A6%96%E9%A1%B5">
+            软件部 WIKI
+          </a>
+        </li>
+        <li>
+          <BaseButton
+            :color="'info'"
+            :icon="'github'"
+            :link="'https://github.com/Z233/csd-website'">
+            <span>在 Github 上查看</span>
+          </BaseButton>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import BaseButton from '~/components/BaseButton.vue'
 export default {
-
+  data() {
+    return {
+      open: false,
+      nav: null
+    }
+  },
 }
 </script>
 
