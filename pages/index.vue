@@ -78,6 +78,10 @@ export default Vue.extend({
   }
 
   #fp-nav ul li a span, .fp-slidesNav ul li a span {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  #fp-nav.fp-right {
+    @apply !right-1 sm:right-auto;
   }
 </style>

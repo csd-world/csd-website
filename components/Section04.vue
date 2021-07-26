@@ -4,9 +4,9 @@
     <div class="absolute p-1/4 bg-white bg-opacity-20 rounded-full left-[-23%] top-[-6%] sm:left-[-37%] sm:top-[20%]" />
     <div class="absolute p-1/12 bg-white bg-opacity-20 rounded-full left-[15%] top-[107%] sm:left-[20%] sm:top-[85%]" />
     <div class="absolute p-1/12 bg-white bg-opacity-20 rounded-full left-[25%] top-[110%] sm:left-[30%] sm:top-[100%]" />
-    <div class="flex-1">
+    <div class="flex-1 sm:pt-1/10">
       <h2 class="mb-6">你也可以成为技术达人</h2>
-      <p class="text-xl">软件部每个方向都有相应的培养方案和学习资源，助你赢在大学生活的起跑线上。</p>
+      <p class="text-xl text-md">软件部每个方向都有相应的培养方案和学习资源，助你赢在大学生活的起跑线上。</p>
     </div>
     <div class="flex-1 relative mt-0 sm:mt-16">
       <div class="pb-full" style="padding-bottom: 100%">
