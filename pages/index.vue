@@ -31,14 +31,6 @@ import Vue from 'vue'
 import Navigation from '~/components/Navigation.vue'
 
 export default Vue.extend({
-  head: {
-    title: '软件部 - 大学生创新创业综合实践基地',
-    meta: [
-      { charset: 'utf-8' },
-      { name:'viewport', content: 'width=device-width, initial-scale-1' },
-      { hid: 'description', name: "description", 'content': '桂林电子科技大学创新创业综合实践基地软件部宣传及报名网站' }
-    ]
-  },
   data() {
     return {
       options: {

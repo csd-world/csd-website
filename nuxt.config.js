@@ -3,18 +3,18 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'csd-website',
+    title: '软件部 - 大学生创新创业综合实践基地',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'zh'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '桂林电子科技大学创新创业综合实践基地软件部宣传及报名网站' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
