@@ -63,7 +63,7 @@ export default Vue.extend({
   }
 
   .section-wrapper {
-    @apply container mx-auto;
+    @apply !container !mx-auto;
   }
 
   .section01 {
