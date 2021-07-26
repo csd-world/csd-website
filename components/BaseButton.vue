@@ -6,7 +6,7 @@
       :class="{
         ['hover:bg-' + color + '-darker bg-' + color]: !!color,
         ['border-' + border]: true,
-        ['bg-black bg-opacity-0 hover:bg-opacity-5']: !!!color
+        ['bg-black bg-opacity-0 hover:bg-opacity-5']: !color
       }"
       class="box-border h-12 min-w-32 rounded-full">
       <div
@@ -21,6 +21,7 @@
         <slot></slot>
       </div>
     </button>
+    <div class="hidden hover:bg-primary-darker border-2 bg-info hover:bg-info-darker"></div>
   </a>
 </template>
 
