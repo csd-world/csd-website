@@ -14,7 +14,7 @@
       class="fixed inset-0 bg-primary-darker h-0 opacity-0 transition-all sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent"
       :class="{ '!h-full !opacity-100': open }">
       <ul
-        class="absolute top-1/2 w-full text-shadow-md flex-col sm:justify-end items-center space-x-8 space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static"
+        class="absolute top-1/2 transform -translate-y-1/2 w-full text-shadow-md flex-col sm:justify-end items-center space-x-8 space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static"
         :class="{ '!flex': open }">
         <li>
         </li>

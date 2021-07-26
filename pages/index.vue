@@ -82,6 +82,6 @@ export default Vue.extend({
   }
 
   #fp-nav.fp-right {
-    @apply !right-1 sm:right-auto;
+    @apply right-1 sm:right-2;
   }
 </style>
