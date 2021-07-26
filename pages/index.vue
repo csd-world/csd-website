@@ -36,7 +36,7 @@ export default Vue.extend({
   data() {
     return {
       options: {
-        anchors: ['1', '2', '3', '4'],
+        anchors: ['welcome', 'free', 'creative', 'comehere'],
         sectionsColor: ['#4e54c8', '#8f94fb', '#8f94fb', '#8f94fb'],
         navigation: true,
         navigationTooltips: ['欢迎加入软件部', '一个自由的技术社团', '一群充满创造力的人', '你也可以成为技术达人'],
