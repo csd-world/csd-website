@@ -53,15 +53,6 @@ export default Vue.extend({
       shadow: true
     }
   },
-  methods: {
-    onLeave(origin, destination, direction) {
-      console.log(origin.index, destination.index, direction.index)
-      if (origin.index === 0) this.shadow = false
-    },
-    afterLoad(origin, destination, direction) {
-      if (destination.index === 0) this.shadow = true
-    }
-  },
   computed: {
     cssProps() {
       return {
