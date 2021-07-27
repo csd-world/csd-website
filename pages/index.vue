@@ -23,6 +23,11 @@
             <Section04 />
           </div>
         </div>
+        <div class="section section05">
+          <div class="section-wrapper">
+            <Section05 />
+          </div>
+        </div>
       </full-page>
     </no-ssr>
   </div>
@@ -36,10 +41,10 @@ import { options } from '~/type'
 @Component
   export default class Index extends Vue {
   private options: options = {
-    anchors: ['welcome', 'free', 'creative', 'comehere'],
+    anchors: ['welcome', 'free', 'creative', 'comehere', 'waitforyou'],
     sectionsColor: ['#4e54c8', '#8f94fb', '#8f94fb', '#8f94fb'],
     navigation: true,
-    navigationTooltips: ['欢迎加入软件部', '一个自由的技术社团', '一群充满创造力的人', '你也可以成为技术达人'],
+    navigationTooltips: ['欢迎加入软件部', '一个自由的技术社团', '一群充满创造力的人', '你也可以成为技术达人', '期待你的到来'],
     onLeave: function(origin, destination) {
       bus.$emit('onLeave', {
         origin,
@@ -74,6 +79,14 @@ import { options } from '~/type'
 
   .section02 {
     background: white;
+  }
+
+  .section05 {
+    background: linear-gradient(#8f94fb, #4e54c8);
+  }
+
+  .fp-section:not(.active):not(.fp-completely) {
+    visibility: hidden;
   }
 
   #fp-nav ul li a span, .fp-slidesNav ul li a span {

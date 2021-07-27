@@ -28,7 +28,7 @@ const animationData = () => import('~/assets/json/growth.json' as any)
 
 
 @Component
-export default class Section02 extends mixins(eventMixin) {
+export default class Section04 extends mixins(eventMixin) {
   @Ref('animation') readonly container!: HTMLElement
   private anim: null | AnimationItem = null
   index = 3;

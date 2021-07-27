@@ -1,6 +1,7 @@
 body {
   transition: background-color 1s ease;
-  color: white
+  color: white;
+  background: #8f94fb;
 }
 
 h1 {

@@ -1,5 +1,6 @@
 <template>
   <a
+    class="inline-block"
     target="_blank" 
     :href="link">
     <button
