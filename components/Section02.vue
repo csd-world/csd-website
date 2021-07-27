@@ -19,24 +19,31 @@
   </div>
 </template>
 
-<script>
-import lottie from 'lottie-web'
+<script lang='ts'>
+import lottie, { AnimationItem } from 'lottie-web'
+import eventMixin from '~/mixins/eventMixin'
+import { Component, Vue, mixins, Ref } from 'nuxt-property-decorator'
 
-const animationData = () => import('~/assets/json/blogging.json')
+const animationData = () => import('~/assets/json/blogging.json' as any)
 
-export default {
-  data() {
-    return {
-      anim: null,
-    };
-  },
+@Component
+export default class Section02 extends mixins(eventMixin) {
+  @Ref('animation') readonly container!: HTMLElement
+  private anim: null | AnimationItem = null
+  index = 1;
+  play() {
+    if (this.anim !== null) this.anim.play()
+  }
+  stop() {
+    if (this.anim !== null) this.anim.stop();
+  }
   mounted() {
-    const container = this.$refs.animation
-    animationData().then(function(data) {
+    animationData().then((data) => {
       this.anim = lottie.loadAnimation({
-        container: container,
+        container: this.container,
         animationData: data,
-        renderer: 'svg'
+        renderer: 'svg',
+        autoplay: false
       })
     })
   }
