@@ -14,29 +14,31 @@
     </div>
     <div class="relative flex-1 mt-12 sm:mt-24">
       <div class="absolute w-full h-5/6 inset-0 bg-yellow-50 rounded-1/2"></div>
-      <lottie class="transform scale-125" :options="lottieOptions" v-on:animCreated="handleAnimation" />
+      <div class="transform scale-125" ref="animation"></div>
     </div>
   </div>
 </template>
 
 <script>
-import lottie from 'vue-lottie/src/lottie.vue'
-import blogging from '~/assets/json/blogging.json'
+import lottie from 'lottie-web'
+
+const animationData = () => import('~/assets/json/blogging.json')
 
 export default {
-  components: {
-    lottie,
-  },
   data() {
     return {
       anim: null,
-      lottieOptions: { animationData: blogging }
     };
   },
-  methods: {
-    handleAnimation: function (anim) {
-      this.anim = anim;
-    }
+  mounted() {
+    const container = this.$refs.animation
+    animationData().then(function(data) {
+      this.anim = lottie.loadAnimation({
+        container: container,
+        animationData: data,
+        renderer: 'svg'
+      })
+    })
   }
 }
 </script>
