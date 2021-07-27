@@ -66,11 +66,11 @@ export default {
     transform-origin: right;
     transition: transform 0.5s;
     top: 120%;
-    @apply bg-primary left-0 w-full h-1;
+    @apply bg-white bg-opacity-80 left-0 w-full h-1;
   }
 
   .nav-item a:hover {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .nav-item a:hover::after {

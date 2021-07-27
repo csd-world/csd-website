@@ -2,20 +2,11 @@
   <div>
     <div class="area absolute inset-0" >
       <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li v-for="i in 10" :key="i"></li>
       </ul>
     </div>
     <div class="text-center container space-y-4 relative">
-      <h1 class="text-shadow-md"><span class="invisible hidden sm:static">🎉 </span>欢迎加入软件部 🎉</h1>
+      <h1 class="text-shadow-md"><span class="invisible hidden sm:static">🎉 </span>欢迎加入软件部<span class="cursor-pointer" @click="hey($event)"> 🎉</span></h1>
       <p class="text-xl text-shadow-sm px-6">软件部隶属于桂电创新创业基地，致力于软件方面的学习和开发，我们期待您的加入！</p>
       <div class="space-x-4">
         <BaseButton
@@ -40,10 +31,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import BaseButton from '~/components/BaseButton.vue'
+import party from 'party-js'
 
 export default {
-  
+  methods: {
+    hey(event: PointerEvent) {
+      const e = event.target as HTMLElement
+      party.confetti(e, {
+        count: party.variation.range(60, 80),
+      })
+    }
+  }
 }
 </script>

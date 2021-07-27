@@ -21,7 +21,7 @@
         <slot></slot>
       </div>
     </button>
-    <div class="hidden hover:bg-primary-darker border-2 bg-info hover:bg-info-darker"></div>
+    <div class="hidden bg-primary hover:bg-primary-darker border-2 bg-info hover:bg-info-darker"></div>
   </a>
 </template>
 
