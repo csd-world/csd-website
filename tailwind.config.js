@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     textShadow
   ],
+  important: true,
     theme: {
       extend: {
         transitionProperty: {
