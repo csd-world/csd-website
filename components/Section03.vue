@@ -52,7 +52,7 @@ export default class Section03 extends mixins(eventMixin) {
 
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
   .triangle1 {
     transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
     @apply p-1/10 top-[90%] right-[60%] sm:right-[4%] sm:top-[15%];
