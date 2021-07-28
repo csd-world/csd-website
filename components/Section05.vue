@@ -1,6 +1,6 @@
 <template>
   <div class="px-2">
-    <div class="relative max-w-xl lg:max-w-3xl mx-auto">
+    <div class="relative max-w-xl lg:max-w-2xl mx-auto">
       <div 
         class=" absolute p-1/4 sm:p-1/6 bg-primary rounded-1/4 rotate-[33deg] right-0 top-0 translate-x-[33%] translate-y-[-33%]" />
       <div class="absolute p-1/4 sm:p-1/6 bg-primary rounded-full right-0 bottom-0 translate-x-[44%] translate-y-[33%]" />
@@ -27,7 +27,7 @@
       </div>
     </div>
     <p class="absolute bottom-2 left-1/2 -translate-x-1/2 text-shadow-md opacity-70 w-auto text-sm whitespace-nowrap">
-      © 2021 Designed & Coded with Love by Fronz
+      © 2021 Designed & Coded with <span class="iconfont icon-love mx-1"></span> by <a href="http://github.com/z233" target="_blank" class="hover:opacity-100">Fronz</a>
     </p>
   </div>
 </template>
