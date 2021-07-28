@@ -8,7 +8,7 @@
     <div class="text-center container space-y-4 relative">
       <h1 class="text-shadow-md"><span class="invisible hidden sm:static">🎉 </span>欢迎加入软件部<span class="cursor-pointer select-none" @click="hey($event)"> 🎉</span></h1>
       <p class="text-xl text-shadow-sm px-6">软件部隶属于桂电创新创业基地，致力于软件方面的学习和开发，我们期待您的加入！</p>
-      <div class="space-x-4">
+      <div class="space-x-1 sm:space-x-4">
         <BaseButton
           :color="'primary'"
           :icon="'QQ'"

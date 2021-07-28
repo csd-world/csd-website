@@ -4,6 +4,13 @@ body {
   background: #8f94fb;
 }
 
+@media screen and (max-width: 375px) {
+  html {
+      font-size: calc(100% + 2 * (100vw - 375px) / 39) !important;
+      font-size: calc(14px + 2 * (100vw - 375px) / 39) !important;
+  }
+}
+
 h1 {
   @apply text-4xl;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col sm:flex-row px-4 sm:px-0 sm:space-x-24 relative">
+  <div class="flex flex-col sm:flex-row sm:space-x-24 relative">
     <div class="triangle triangle1"></div>
     <div class="triangle triangle2"></div>
     <div class="triangle triangle3"></div>

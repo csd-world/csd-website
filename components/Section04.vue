@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col sm:flex-row px-4 sm:px-0 relative">
+  <div class="flex flex-col sm:flex-row relative">
     <div class="absolute p-1/6 bg-white bg-opacity-20 rounded-full top-[-18%] sm:left-[-12%] sm:top-[-8%]"></div>
     <div class="absolute p-1/4 bg-white bg-opacity-20 rounded-full left-[-23%] top-[-6%] sm:left-[-37%] sm:top-[20%]" />
     <div class="absolute p-1/12 bg-white bg-opacity-20 rounded-full left-[15%] top-[107%] sm:left-[20%] sm:top-[85%]" />

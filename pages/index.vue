@@ -58,6 +58,9 @@ import { options } from '~/type'
       })
     }
   }
+  mounted() {
+      // document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 +'px';
+  }
 }
 </script>
 
@@ -67,7 +70,7 @@ import { options } from '~/type'
   }
 
   .section-wrapper {
-    @apply !container !mx-auto;
+    @apply !container !mx-auto px-6;
   }
 
   .section01 {
