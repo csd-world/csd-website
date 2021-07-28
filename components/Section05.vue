@@ -1,6 +1,6 @@
 <template>
   <div class="px-2">
-    <div class="relative max-w-xl mx-auto">
+    <div class="relative max-w-xl lg:max-w-3xl mx-auto">
       <div 
         class=" absolute p-1/4 sm:p-1/6 bg-primary rounded-1/4 rotate-[33deg] right-0 top-0 translate-x-[33%] translate-y-[-33%]" />
       <div class="absolute p-1/4 sm:p-1/6 bg-primary rounded-full right-0 bottom-0 translate-x-[44%] translate-y-[33%]" />

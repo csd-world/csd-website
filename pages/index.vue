@@ -104,6 +104,6 @@ import { options } from '~/type'
   }
 
   #fp-nav.fp-right {
-    @apply right-2 sm:right-4;
+    @apply right-1 sm:right-4;
   }
 </style>
