@@ -13,7 +13,7 @@
       <p class="text-xl text-shadow-md">在这里，你能接触到各种各样的前沿技术。我们奉承自由的极客精神，你可以学习任何你想学习的东西。</p>
     </div>
     <div class="relative flex-1 mt-16 sm:mt-24">
-      <div class="absolute w-full h-5/6 inset-0 bg-yellow-50 rounded-1/2"></div>
+      <div class="absolute px-[40%] py-[30%] inset-0 bg-yellow-50 rounded-1/2"></div>
       <div class="transform scale-125" ref="animation"></div>
     </div>
   </div>

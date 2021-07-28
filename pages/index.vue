@@ -85,8 +85,18 @@ import { options } from '~/type'
     background: linear-gradient(#8f94fb, #4e54c8);
   }
 
+  // improve performance
   .fp-section:not(.active):not(.fp-completely) {
     visibility: hidden;
+  }
+  
+  #fp-nav ul li, .fp-slidesNav ul li {
+    margin: 0;
+  }
+
+
+  #fp-nav ul, .fp-slidesNav ul {
+    @apply space-y-1;
   }
 
   #fp-nav ul li a span, .fp-slidesNav ul li a span {
@@ -94,6 +104,6 @@ import { options } from '~/type'
   }
 
   #fp-nav.fp-right {
-    @apply right-1 sm:right-2;
+    @apply right-2 sm:right-4;
   }
 </style>
