@@ -107,6 +107,12 @@ import { options } from '~/type'
   }
 
   #fp-nav.fp-right {
-    @apply right-3 sm:right-4;
+    @apply !right-1;
+  }
+
+  @media (min-width: 640px) {
+    #fp-nav.fp-right {
+      right: 1rem !important;
+    }
   }
 </style>
