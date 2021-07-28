@@ -70,7 +70,7 @@ import { options } from '~/type'
   }
 
   .section-wrapper {
-    @apply !container !mx-auto px-6;
+    @apply !container !mx-auto px-4 sm:px-6;
   }
 
   .section01 {
@@ -107,6 +107,6 @@ import { options } from '~/type'
   }
 
   #fp-nav.fp-right {
-    @apply right-0 -translate-x-1/2 sm:right-4;
+    @apply right-3 sm:right-4;
   }
 </style>
