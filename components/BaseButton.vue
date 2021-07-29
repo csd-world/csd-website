@@ -14,7 +14,7 @@
         :class="{
           'mx-5': true
         }"
-        class="space-x-1">
+        class="space-x-1 text-center">
         <span
           v-if="!!icon"
           class="iconfont"
