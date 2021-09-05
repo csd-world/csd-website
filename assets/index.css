@@ -1,3 +1,19 @@
+html {
+	font-size: 1.125em;
+}
+
+@media screen and (min-width:48em) {
+	html {
+		font-size: calc(.35842vw + .95296em)
+	}
+}
+
+@media screen and (min-width:187.5em) {
+	html {
+		font-size: 1.625em
+	}
+}
+
 body {
   transition: background-color 1s ease;
   color: white;
@@ -12,11 +28,11 @@ body {
 }
 
 h1 {
-  @apply text-4xl;
+  @apply text-3xl;
 }
 
 h2 {
-  @apply text-3xl font-bold relative z-10 inline-block text-shadow-md;
+  @apply text-2xl font-bold relative z-10 inline-block text-shadow-md;
 }
 
 h2::before {
