@@ -13,7 +13,7 @@
     </div>
     <div class="flex-1 mt-12 z-10 relative">
       <h2 class="mb-6">一群充满创造力的人</h2>
-      <p class="text-xl text-md">软件部汇聚了一群精通技术又充满创造力的人，他们在自己专注的方向上大放异彩。</p>
+      <p class=" text-md text-shadow-md">软件部汇聚了一群精通技术又充满创造力的人，他们在自己专注的方向上大放异彩。</p>
     </div>
   </div>
 </template>
