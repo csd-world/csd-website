@@ -1,6 +1,6 @@
 <template>
   <a
-    class="inline-block"
+    class="inline-block select-none"
     target="_blank" 
     :href="link">
     <button
