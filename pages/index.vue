@@ -1,6 +1,6 @@
 <template>
-  <div class="relative">
-    <Navigation />
+  <div class="relative bg-[#8f94fb]">
+    <Navigation :fixed="true" />
     <no-ssr>
       <full-page :options="options">
         <div class="section section01">

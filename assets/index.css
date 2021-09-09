@@ -17,7 +17,6 @@ html {
 body {
   transition: background-color 1s ease;
   color: white;
-  background: #8f94fb;
 }
 
 @media screen and (max-width: 375px) {

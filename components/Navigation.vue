@@ -1,5 +1,6 @@
 <template>
-  <div id="navigation" class="w-full fixed z-[200] top-4 right-5 flex justify-end sm:left-5 sm:justify-start">
+  <div id="navigation" class="w-full py-4 px-5"
+  :class="{ 'fixed z-[200] top-4 right-5 flex justify-end sm:left-8 sm:justify-start py-0 px-0': fixed }">
     <div class="w-6 cursor-pointer sm:hidden" @click="open = !open">
       <div class="h-1 py-2 box-content bg-clip-content w-full relative opacity-50 text-white bg-white before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all"
       :class="{
@@ -11,8 +12,8 @@
         }" />
     </div>
     <div
-      class="fixed inset-0 bg-primary-darker h-0 opacity-0 transition-all sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent"
-      :class="{ '!h-full !opacity-100': open }">
+      class="inset-0 bg-primary-darker h-0 opacity-0 transition-all sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent"
+      :class="{ '!h-full !opacity-100': open, 'fixed': false }">
       <ul
         class="absolute top-1/2 transform -translate-y-1/2 w-full text-shadow-md flex-col  items-center sm:space-x-8 space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0"
         :class="{ '!flex': open }">
@@ -21,31 +22,39 @@
             <img class="h-14" src="~/assets/logo.png">
           </a>
         </li>
-        <li 
-          class="nav-item"
-          :class="{ 'current': curIndex === index  }" 
-          v-for="(item, index) in items" 
-          :key="item.name">
-          <a>{{ item.name }}</a>
-        </li>
+        <nuxt-link 
+          :key="item.name"
+          v-for="item in items" 
+          :to="item.path">
+          <li 
+            class="nav-item"
+            :class="{ 'current': curRouteName === item.name  }" >
+              {{ item.title }}
+          </li>
+        </nuxt-link>
       </ul>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class Navigation extends Vue {
+  @Prop({ default: false }) fixed!: boolean
   private open = false
   private nav = null
   private items = [{
-    name: '首页'
+    title: '首页',
+    name: 'index',
+    path: '/'
   }, {
-    name: '报名'
+    title: '报名',
+    name: 'apply',
+    path: '/apply'
   }]
-  private curIndex = 0
+  private curRouteName = this.$router.currentRoute.name
 }
 </script>
 
@@ -57,6 +66,7 @@ export default class Navigation extends Vue {
   .nav-item.current {
     @apply bg-black bg-opacity-30 hover:bg-opacity-40;
   }
+
   /* .nav-item a {
     transition: transfrom 0.5s;
   }
