@@ -1,6 +1,6 @@
 <template>
   <div class="relative bg-gray-200 flex flex-col items-center min-h-screen">
-    <div class="flex flex-col items-center bg-primary">
+    <div class="flex flex-col items-center bg-primary w-full">
       <Navigation />
       <div class="container">
         <div class="w-full px-8 sm:px-0">
@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="w-screen bg-black bg-opacity-[0.35]">
+      <div class="w-full bg-black bg-opacity-[0.35]">
         <div
           class="container mx-auto py-10 grid grid-cols-3 relative px-4 sm:px-0">
           <div class="col-span-3 sm:col-span-2">
@@ -80,6 +80,6 @@ export default class ApplyPage extends Vue {
 
 <style lang="postcss" scoped>
   .form {
-    @apply bg-white p-6 space-y-4 sm:col-span-2 mt-4 sm:mt-0 rounded-lg mb-4 sm:rounded-b-lg;
+    @apply bg-white p-6 space-y-4 sm:col-span-2 mt-4 sm:mt-0 rounded-lg mb-4 sm:rounded-b-lg sm:rounded-t-none;
   }
 </style>
