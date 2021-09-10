@@ -29,7 +29,7 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#5222d0',
-          darker: darken('#5222d0', 0.05)
+          darker: darken('#5222d0', 0.1)
         },
         info: {
           DEFAULT: 'rgba(0, 0, 0, 0.2)',

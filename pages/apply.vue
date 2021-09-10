@@ -30,23 +30,25 @@
       </div>
     </div>
     <div class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4">
-      <div v-if="curIndex === 0" class="form">
+      <form
+        @submit.prevent="onFormSubmit" 
+        v-if="curIndex === 0" class="form">
         <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
-          <BaseInput :label="'学号'" class="w-64" :type="'number'" />
-          <BaseInput :label="'姓名'" class="w-32" :type="'text'" />
+          <BaseInput :name="'stdId'" :label="'学号'" class="w-64" :type="'number'" />
+          <BaseInput :name="'stdName'" :label="'姓名'" class="w-32" :type="'text'" />
         </div>
         <BaseCheckbox :label="'我有编程基础'" />
-        <BaseTextarea :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
-        <BaseTextarea :label="'说说你为什么想加入软件部'" />
-        <button class=" bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker">提交报名表</button>
-      </div>
+        <BaseTextarea :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
+        <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
+        <button class=" bg-primary hover:bg-primary-darker py-2 px-3 rounded-lg hover:bg-primary-darker">提交报名表</button>
+      </form>
       <div v-if="curIndex === 1" class="form">
         <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
           <BaseInput :label="'学号'" class="w-64" :type="'number'" />
           <BaseInput :label="'姓名'" class="w-32" :type="'text'" />
         </div>
         <BaseTextarea :label="'说说你为什么想加入软件部'" />
-        <button class=" bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker">提交报名表</button>
+        <button disabled class=" bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 cursor-not-allowed">提交报名表</button>
       </div>
       <div class="h-32 col-span-1 bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg">
 
@@ -61,6 +63,11 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class ApplyPage extends Vue {
   private curIndex = 0
+
+  public onFormSubmit(e: Event): void {
+    const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+    
+  }
 }
 </script>
 

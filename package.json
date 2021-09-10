@@ -18,6 +18,7 @@
     "nuxt": "^2.15.7",
     "nuxt-property-decorator": "^2.9.1",
     "party-js": "^2.0.1",
+    "vee-validate": "^3.4.12",
     "vue-fullpage.js": "^0.1.7"
   },
   "devDependencies": {
