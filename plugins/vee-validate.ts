@@ -1,0 +1,33 @@
+import { required } from 'vee-validate/dist/rules'
+import { extend, setInteractionMode } from 'vee-validate'
+
+setInteractionMode('custom', ({ errors, value }) => {
+  if (errors.length) {
+    return {
+      on: ['input', 'change']
+    };
+  }
+
+  if (value) {
+    return {
+      on: ['blur']
+    };
+  }
+
+  return { on: ['submit'] };
+})
+
+extend('required', {
+  ...required,
+  message: (name) => `${name}不能为空！`
+})
+
+extend('gradeOne', {
+  validate: (value: number) => parseInt(value.toString().slice(0, 2), 10) === 21,
+  message: '请输入正确的学号'
+})
+
+extend('name', {
+  validate: (value: string) => !!value.match(new RegExp(`^[\u4e00-\u9fa5]+(·[\u4e00-\u9fa5]+)*$`)),
+  message: '请输入正确的姓名'
+})

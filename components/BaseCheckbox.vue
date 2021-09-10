@@ -3,7 +3,7 @@
     <label class="text-gray-700" :for="label">{{ label }}</label>
     <div 
       class="relative  rounded">
-      <input :name="label" type="checkbox" class="absolute inset-0 w-4 h-4 opacity-0"> 
+      <input v-model="checkedValue" :name="label" type="checkbox" class="absolute inset-0 w-4 h-4 opacity-0"> 
       <div class=" transition h-4 w-4 border-2 border-gray-300 rounded  flex items-center justify-center">
         <svg class=" hidden fill-current w-2 h-2 text-blue-white pointer-events-none" version="1.1" viewBox="0 0 17 12" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fill-rule="evenodd">
@@ -19,11 +19,12 @@
 
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, ModelSync } from 'nuxt-property-decorator'
 
 @Component
 export default class BaseCheckbox extends Vue {
   @Prop({ required: true }) readonly label!: string
+  @ModelSync('checked', 'update', { type: Boolean }) readonly checkedValue!: boolean
 }
 </script>
 

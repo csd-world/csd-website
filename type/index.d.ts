@@ -139,3 +139,11 @@ export interface rn {
   isLast: boolean,
   item: HTMLElement
 }
+
+export interface UserModel {
+  hasLearn: boolean,
+  selfInfo: string,
+  studentId: string,
+  studentName: string,
+  whyJoin: string
+}

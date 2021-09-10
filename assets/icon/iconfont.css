@@ -1,16 +1,20 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2698146 */
-  src: url('iconfont.woff2?t=1627442801330') format('woff2'),
-       url('iconfont.woff?t=1627442801330') format('woff'),
-       url('iconfont.ttf?t=1627442801330') format('truetype');
+  src: url('iconfont.woff2?t=1631283016131') format('woff2'),
+       url('iconfont.woff?t=1631283016131') format('woff'),
+       url('iconfont.ttf?t=1631283016131') format('truetype');
 }
 
 .iconfont {
-  @apply text-base;
   font-family: "iconfont" !important;
+  /* font-size: 16px; */
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e6b5";
 }
 
 .icon-love:before {

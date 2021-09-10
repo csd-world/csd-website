@@ -1,7 +1,7 @@
 <template>
   <a
     class="inline-block select-none"
-    target="_blank" 
+    :target="target" 
     :href="link">
     <button
       :class="{
@@ -22,7 +22,7 @@
         <slot></slot>
       </div>
     </button>
-    <div class="hidden bg-primary hover:bg-primary-darker border-2 bg-info hover:bg-info-darker"></div>
+    <div class="hidden bg-primary bg-primary-lighter hover:bg-primary-darker border-2 bg-info hover:bg-info-darker"></div>
   </a>
 </template>
 
@@ -47,6 +47,11 @@ export default {
     link: {
       type: String,
       required: true
+    },
+    target: {
+      required: false,
+      type: String,
+      default: '_blank'
     }
   },
 }

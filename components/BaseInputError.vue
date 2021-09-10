@@ -3,10 +3,19 @@
     style="animation: shake 0.6s ease-in-out;"
     class="mt-2 ml-2">
     <span class="text-xs bg-red-600 px-2 py-1 rounded-lg whitespace-nowrap text-gray-50 translate-x-0">
-      <span class="mr-1">⚠</span>请填写你的学号
+      <span class="mr-1">⚠</span>{{ msg }}
     </span>
   </div>
 </template>
+
+<script lang="ts">
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
+
+@Component
+export default class BaseInputError extends Vue {
+  @Prop({ required: true }) readonly msg!: string
+}
+</script>
 
 <style lang="postcss">
   @keyframes shake {
