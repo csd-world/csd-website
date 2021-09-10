@@ -1,7 +1,10 @@
 <template>
-  <div id="navigation" class="w-full py-4 px-5"
-  :class="{ 'fixed z-[200] top-4 right-5 flex justify-end sm:left-8 sm:justify-start py-0 px-0': fixed }">
-    <div class="w-6 cursor-pointer sm:hidden" @click="open = !open">
+  <div id="navigation" class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex"
+  :class="{ 
+    'fixed z-[200] sm:left-0': fixed,
+    ' sm:self-stretch': !fixed
+  }">
+    <div class="w-6 cursor-pointer sm:hidden relative z-[200]" @click="open = !open">
       <div class="h-1 py-2 box-content bg-clip-content w-full relative opacity-50 text-white bg-white before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all"
       :class="{
         [
@@ -13,7 +16,7 @@
     </div>
     <div
       class="inset-0 bg-primary-darker h-0 opacity-0 transition-all sm:opacity-100 sm:h-auto sm:inset-auto sm:bg-transparent"
-      :class="{ '!h-full !opacity-100': open, 'fixed': false }">
+      :class="{ '!h-full !opacity-100': open, 'fixed': fixed, 'fixed sm:static z-[100]': !fixed }">
       <ul
         class="absolute top-1/2 transform -translate-y-1/2 w-full text-shadow-md flex-col  items-center sm:space-x-8 space-y-4 hidden sm:flex sm:flex-row sm:space-y-0 sm:static sm:translate-y-0"
         :class="{ '!flex': open }">
