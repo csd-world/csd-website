@@ -33,12 +33,12 @@
       v-show="curIndex === 0"
       class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4">
       <ValidationObserver
-        v-slot="{ handleSubmit, validate }"
+        v-slot="{ handleSubmit }"
         ref="observer"
         tag="div" 
         class="form">
         <form
-          @submit.prevent="handleSubmit(onSubmit($event, validate))"
+          @submit.prevent.once="handleSubmit(onSubmit($event))"
           class="space-y-4"
           >
           <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
@@ -77,7 +77,6 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'nuxt-property-decorator' 
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { ValidationContext } from 'vee-validate/dist/types/components/common'
 import { addUser } from '~/utils/api'
 
 @Component({
@@ -92,23 +91,31 @@ export default class ApplyPage extends Vue {
   private checked = false
   
 
-  public onSubmit(e: Event, validate: Function) {
-    
-    
-    
-    const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+  public onSubmit(e: Event) {
+    if (this.$refs === undefined) return
+    const observer = this.$refs.observer as InstanceType<typeof ValidationObserver> 
 
-    addUser({
-      hasLearn: this.checked,
-      selfInfo: prgExp,
-      studentId: stdId,
-      studentName: stdName,
-      whyJoin: applyReason
-    }).then(response => {
-      this.$router.push('/apply/success') 
-    }).catch(() => {
-      throw new Error('Unknown errors.')
+    observer.validate().then((valid: boolean) => {
+      if (valid) {
+        const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+        addUser({
+          hasLearn: this.checked,
+          selfInfo: prgExp,
+          studentId: stdId,
+          studentName: stdName,
+          whyJoin: applyReason
+        }).then(response => {
+          this.$router.push('/apply/success') 
+        }).catch(() => {
+          throw new Error('Unknown errors.')
+        })
+      }
     })
+    .catch(e => {
+      throw new Error(e)
+    })
+    
+
     
   }
 }
