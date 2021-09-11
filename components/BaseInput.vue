@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, ModelSync } from 'nuxt-property-decorator'
 import { ValidationProvider } from 'vee-validate'
 
 @Component({

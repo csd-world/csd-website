@@ -33,11 +33,12 @@
       v-show="curIndex === 0"
       class="container flex-grow px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4">
       <ValidationObserver
-        v-slot="{ handleSubmit, valid }"
+        v-slot="{ handleSubmit, validate }"
+        ref="observer"
         tag="div" 
         class="form">
         <form
-          @submit.prevent="handleSubmit(onSubmit($event, valid))"
+          @submit.prevent="handleSubmit(onSubmit($event, validate))"
           class="space-y-4"
           >
           <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
@@ -70,6 +71,7 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'nuxt-property-decorator' 
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { ValidationContext } from 'vee-validate/dist/types/components/common'
 import { addUser } from '~/utils/api'
 
 @Component({
@@ -82,10 +84,11 @@ import { addUser } from '~/utils/api'
 export default class ApplyPage extends Vue {
   private curIndex = 0
   private checked = false
+  
 
-  public onSubmit(e: Event, v: boolean) {
-    if (!v) return 
-    console.log('run there');
+  public onSubmit(e: Event, validate: Function) {
+    
+    
     
     const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
 
