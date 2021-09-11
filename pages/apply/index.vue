@@ -16,12 +16,12 @@
           </div>
         </div>
       </div>
-      <div class="w-full bg-black bg-opacity-[0.35]">
+      <div class="w-full bg-black bg-opacity-[0.25]">
         <div
           class="container mx-auto py-10 grid grid-cols-3 relative px-4 sm:px-0">
           <div class="col-span-3 sm:col-span-2">
             <h3>加入软件部</h3>
-            <p>滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。白发渔樵江渚上，惯看秋月春风。一壶浊酒喜相逢，古今多少事，都付笑谈中。</p>
+            <p>加入软件部的一般流程是：填写报名表 > 参加机试 > 参加面试 > 获得入部资格。在一切都没到来之前，先填个表吧！让我们认识一下你 ( •̀ ω •́ )✧</p>
           </div>
           <div class=" sm:col-span-1 relative hidden sm:block">
             <img src="~/assets/join.svg" class="absolute left-1/2 -translate-x-1/2">
@@ -55,8 +55,14 @@
           <button disabled class=" font-bold bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 cursor-not-allowed">提交报名表</button>
         </form>
       </ValidationObserver>
-      <div class="h-32 col-span-1 bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg">
-
+      <div class="col-span-1">
+        <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6">
+          <h4 class="mb-2 text-xl font-medium">注意事项：</h4>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>报名表可以让我们对你有个大概的了解，请务必如实认真填写。</li>
+            <li>遇到如提交不了等其他问题，请到群里联系管理员反馈。</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div v-show="curIndex === 1" class="container px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4">
@@ -111,19 +117,17 @@ export default class ApplyPage extends Vue {
 
 <style lang="postcss" scoped>
   .tab {
-    @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-opacity-30;
+    @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-opacity-20;
   }
 
   .tab.current {
-    @apply bg-black bg-opacity-[0.35] hover:bg-opacity-30;
+    @apply bg-black bg-opacity-[0.25] hover:bg-opacity-20;
   }
 
   h3 {
     @apply text-2xl mb-2 font-semibold;
   }
-</style>
 
-<style lang="postcss" scoped>
   .form {
     @apply bg-white p-6 space-y-4 sm:col-span-2 mt-4 sm:mt-0 rounded-lg mb-4 sm:rounded-b-lg sm:rounded-t-none;
   }
