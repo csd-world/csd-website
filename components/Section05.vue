@@ -12,7 +12,7 @@
         </div>
         <div class="mb-6">
           <h2 class="mb-4 text-shadow-md">期待你的到来</h2>
-          <p class="text-shadow-md">无论你是初入大学校门，还是已经习惯了大学生活，都有机会在软件部获得一席之地。</p>
+          <p class="text-shadow-md">无论你是初入大学校门，还是已经习惯了大学生活，都有机会在软件部获得一席之地。期待能与你一起学习，共同进步！</p>
         </div>
         <!-- <div class="flex-1" style="background-image: url('/welcome.svg')"></div> -->
         <!-- <div class="relative px-1/6 py-1/4 sm:px-1/8 sm:py-[0] !mt-8 !mb-6 bg-yellow-50 rounded-1/2">
