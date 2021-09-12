@@ -4,7 +4,7 @@
         <Navigation :color="'primary'" />
       </div>
       <div class="flex-grow relative  px-4 w-full sm:w-auto">
-        <div class="bg-white rounded-lg text-gray-700 text-center absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  p-8 space-y-6 w-11/12 sm:w-auto sm:whitespace-nowrap">
+        <div class="bg-white rounded-lg text-gray-700 text-center absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  p-8 space-y-6 w-11/12 sm:w-auto sm:whitespace-nowrap shadow-md">
           <div class="ribbon ribbon-top-left"><span>恭喜！</span></div>
           <div ref="animation"></div>
           <h3 class="text-primary text-2xl font-semibold">报名成功！</h3>
