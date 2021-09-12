@@ -21,7 +21,7 @@
           class="container mx-auto py-10 grid grid-cols-3 relative px-4 sm:px-0">
           <div class="col-span-3 sm:col-span-2">
             <h3>加入软件部</h3>
-            <p>加入软件部的一般流程是：填写报名表 > 参加机试 > 参加面试 > 获得入部资格。在一切都没到来之前，先填个表吧！让我们认识一下你 ( •̀ ω •́ )✧</p>
+            <p>加入软件部的一般流程是：填写报名表 > 参加机试 > 参加面试 > 获得入部资格。在一切都没到来之前，先填个表吧！让我们认识一下你 <span class=" whitespace-nowrap">( •̀ ω •́ )✧</span></p>
           </div>
           <div class=" sm:col-span-1 relative hidden sm:block">
             <img src="~/assets/join.svg" class="absolute left-1/2 -translate-x-1/2">
