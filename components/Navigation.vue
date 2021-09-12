@@ -24,7 +24,7 @@
         :class="{ '!flex': open }">
         <li class="sm:mr-4">
           <a href="/">
-            <img class="h-14" src="~/assets/logo.png">
+            <img class="h-14" src="~/assets/svg/logo.svg">
           </a>
         </li>
         <nuxt-link 
