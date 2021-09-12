@@ -44,6 +44,7 @@ import party from 'party-js'
 import { Emitter } from 'party-js/lib/particles/emitter'
 import { ModuleBuilder } from 'party-js/lib/systems/modules'
 import { SourceSampler } from 'party-js/lib/systems/sources'
+import { ConfettiConfiguration } from 'party-js/lib/templates/confetti'
 
 const animationData = () => import('~/assets/json/success.json' as any)
 
@@ -64,8 +65,11 @@ export default class SuccessPage extends Vue {
         autoplay: true,
       })
       setTimeout(() => {
-        party.confetti(this.source1)
-        party.confetti(this.source2)
+        const option: Partial<ConfettiConfiguration> = {
+          spread: 20,
+        }
+        party.confetti(this.source1, option)
+        party.confetti(this.source2, option)
       }, 300)
     })
   }
