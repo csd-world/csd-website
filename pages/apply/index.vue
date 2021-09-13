@@ -48,28 +48,22 @@
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
-          <button class=" font-bold bg-primary hover:bg-primary-darker py-2 px-3 rounded-lg ">提交报名表</button>
+          <button disabled class="submit">提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
           <div class="mb-6"><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
-          <button disabled class=" font-bold bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 cursor-not-allowed">提交报名表</button>
+          <button disabled class="submit">提交报名表</button>
         </form>
       </ValidationObserver>
       <div class="col-span-1">
-        <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6">
-          <h4 class="mb-2 text-xl font-medium">注意事项：</h4>
-          <ul class="list-disc pl-4 space-y-2">
+        <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6 space-y-2">
+          <h4 class="text-xl font-medium text-yellow-600">报名系统维护中...</h4>
+          <!-- <ul class="list-disc pl-4 space-y-2">
             <li>报名表可以让我们对你有个大概的了解，请务必如实认真填写。</li>
             <li>遇到如提交不了等其他问题，请到群里联系管理员反馈。</li>
-          </ul>
+          </ul> -->
         </div>
       </div>
-    </div>
-    <div v-show="curIndex === 1" class="container px-4 flex flex-col-reverse sm:px-0 sm:grid sm:grid-cols-3 sm:space-x-4">
-      <form class="form">
-        <div><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
-        <button disabled class=" bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 cursor-not-allowed">提交报名表</button>
-      </form>
     </div>
   </div>
 </template>
@@ -123,6 +117,10 @@ export default class ApplyPage extends Vue {
 </script>
 
 <style lang="postcss" scoped>
+  .submit {
+    @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 cursor-not-allowed font-bold;
+  }
+
   .tab {
     @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-opacity-20;
   }
