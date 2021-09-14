@@ -10,14 +10,15 @@
     }">
     <div class="w-6 cursor-pointer sm:hidden relative z-[200]" @click="open = !open">
       <div 
-        class="h-1 py-2 box-content bg-clip-content w-full relative opacity-100   before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all bg-white"
+        class="h-1 py-2 box-content bg-clip-content w-full relative opacity-100   before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all"
         :class="{
           [
             'before:translate-y-[8.5px] before:translate-x-0 before:rotate-45  ' +
             'after:translate-y-[-8.5px] after:translate-x-0 after:-rotate-45  ' + 
             'bg-transparent !text-white z-10 opacity-100'
           ]: open,
-          ['!bg-transparent ' + 'text-' + color]: open
+          ['!bg-transparent']: open,
+          ['bg-' + color + ' text-' + color]: true
           }" />
     </div>
     <div
@@ -28,7 +29,7 @@
         :class="{ '!flex': open }">
         <li class="sm:mr-4">
           <a href="/">
-            <img class="h-14" src="~/assets/logo.png">
+            <img class="h-14" src="~/assets/svg/logo.svg">
           </a>
         </li>
         <nuxt-link 

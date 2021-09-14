@@ -4,8 +4,12 @@
         <Navigation :color="'primary'" />
       </div>
       <div class="flex-grow relative  px-4 w-full sm:w-auto">
-        <div class="bg-white rounded-lg text-gray-700 text-center absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  p-8 space-y-6 w-11/12 sm:w-auto sm:whitespace-nowrap">
+        <div
+          ref="card" 
+          class="bg-white rounded-lg text-gray-700 text-center absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  p-8 space-y-6 w-11/12 sm:w-auto sm:whitespace-nowrap shadow-md">
           <div class="ribbon ribbon-top-left"><span>恭喜！</span></div>
+          <div ref="source1" class="absolute left-0 top-0"></div>
+          <div ref="source2" class="absolute right-0 top-0"></div>
           <div ref="animation"></div>
           <h3 class="text-primary text-2xl font-semibold">报名成功！</h3>
           <div>
@@ -36,12 +40,21 @@
 <script lang='ts'>
 import lottie, { AnimationItem } from 'lottie-web'
 import { Component, Vue, mixins, Ref } from 'nuxt-property-decorator'
+import party from 'party-js'
+import { Emitter } from 'party-js/lib/particles/emitter'
+import { ModuleBuilder } from 'party-js/lib/systems/modules'
+import { SourceSampler } from 'party-js/lib/systems/sources'
+import { ConfettiConfiguration } from 'party-js/lib/templates/confetti'
 
 const animationData = () => import('~/assets/json/success.json' as any)
 
 @Component
 export default class SuccessPage extends Vue {
   @Ref('animation') readonly container!: HTMLElement
+  @Ref('card') readonly card!: HTMLElement
+  @Ref('source1') readonly source1!: HTMLElement
+  @Ref('source2') readonly source2!: HTMLElement
+
   private anim: null | AnimationItem = null
   mounted() {
     animationData().then((data) => {
@@ -51,6 +64,13 @@ export default class SuccessPage extends Vue {
         renderer: 'svg',
         autoplay: true,
       })
+      setTimeout(() => {
+        const option: Partial<ConfettiConfiguration> = {
+          spread: 20,
+        }
+        party.confetti(this.source1, option)
+        party.confetti(this.source2, option)
+      }, 300)
     })
   }
 }
