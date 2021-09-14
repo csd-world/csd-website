@@ -1,10 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-800 pb-4">
-    <Navigation 
-      :currentClasses="'bg-primary'" 
-      :hoverClasses="'hover:bg-primary hover:bg-opacity-80'" />
+    <DirectionNavigation :navColor="navColor" />
     <div class="container mx-auto px-4">
-      <div class="flex mb-4">
+      <div ref="introWrapper" class="flex mb-4">
         <div class="flex flex-col justify-center space-y-4">
           <h1 class=" font-semibold text-shadow-md">方向介绍</h1>
           <p class=" text-shadow-sm">{{ introduction }}</p>
@@ -35,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { Vue, Component, Ref } from 'nuxt-property-decorator'
 import postcss from 'postcss'
 
 const tailWindClasses = `text-blue-600 text-yellow-600 text-red-600 text-green-600
@@ -66,5 +64,17 @@ export default class DirectionsPage extends Vue {
     name: '人工智能',
     desc: '对自然语言处理（语音助手）、计算机视觉（自动驾驶）、数据挖掘（推荐算法）等方向进行学习。在这里你可以汲取学长的学习经验，接触到不同学院的老师、同学。'
   }]
+  @Ref('introWrapper') private introWrapper!: HTMLElement
+  private navColor = 'white'
+
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => { 
+        this.navColor = entry.isIntersecting ? 'white' : 'primary'
+      },
+      { threshold: 0.0 }
+    )
+    observer.observe(this.introWrapper)
+  }
 }
 </script>

@@ -6,7 +6,7 @@
     :class="{ 
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
-      ' sticky top-0 sm:static sm:top-auto': sticking,
+      ' sticky top-0 sm:static sm:top-auto': sticking && !fixed
     }">
     <div class="w-6 cursor-pointer sm:hidden relative z-[200]" @click="open = !open">
       <div 
@@ -75,17 +75,13 @@ export default class Navigation extends Vue {
   private observer!: IntersectionObserver
   private sticking = false
 
-  get cssProps() {
-
-  }
-
   get routeName()  {
     return this.$route.name
   } 
 
   mounted() {
     this.observer = new IntersectionObserver(
-      ([entry]) => { this.sticking = !(entry as any).isVisible; console.log(entry);
+      ([entry]) => { this.sticking = !(entry as any).isVisible;
         },
       { threshold: 0.0 }
     )
