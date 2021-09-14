@@ -6,7 +6,7 @@
     :class="{ 
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
-      ' sticky top-0 sm:static sm:top-auto': sticking
+      ' sticky top-0 sm:static sm:top-auto': sticking,
     }">
     <div class="w-6 cursor-pointer sm:hidden relative z-[200]" @click="open = !open">
       <div 
@@ -37,7 +37,7 @@
           :to="item.path">
           <li 
             class="nav-item"
-            :class="{ 'current': routeName === item.name  }" >
+            :class="[{ [currentClasses]: routeName === item.name  }, hoverClasses]" >
               {{ item.title }}
           </li>
         </nuxt-link>
@@ -54,6 +54,8 @@ export default class Navigation extends Vue {
   @Ref('navigation') private navigation!: HTMLElement
   @Prop({ default: false }) fixed!: boolean
   @Prop({ required: false, default: 'white' }) color!: string
+  @Prop({ required: false, default: ' hover:bg-black hover:bg-opacity-40' }) hoverClasses!: string
+  @Prop({ required: false, default: ' bg-black bg-opacity-30 hover:bg-opacity-40' }) currentClasses!: string
   private open = false
   private nav = null
   private items = [{
@@ -72,6 +74,10 @@ export default class Navigation extends Vue {
   private observer!: IntersectionObserver
   private sticking = false
 
+  get cssProps() {
+
+  }
+
   get routeName()  {
     return this.$route.name
   } 
@@ -89,11 +95,7 @@ export default class Navigation extends Vue {
 
 <style lang="postcss" scoped>
   .nav-item {
-    @apply relative select-none hover:bg-black hover:bg-opacity-40 font-semibold px-6 py-2 rounded-lg cursor-pointer;
-  }
-
-  .nav-item.current {
-    @apply bg-black bg-opacity-30 hover:bg-opacity-40;
+    @apply relative select-none font-semibold px-6 py-2 rounded-lg cursor-pointer;
   }
 
   /* .nav-item a {

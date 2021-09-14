@@ -1,6 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-800 pb-4">
-    <Navigation />
+    <Navigation 
+      :currentClasses="'bg-primary'" 
+      :hoverClasses="'hover:bg-primary hover:bg-opacity-80'" />
     <div class="container mx-auto px-4">
       <div class="flex mb-4">
         <div class="flex flex-col justify-center space-y-4">
