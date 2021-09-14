@@ -1,9 +1,13 @@
 <template>
-  <div id="navigation" class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex"
-  :class="{ 
-    'fixed z-[200] sm:left-0': fixed,
-    ' sm:self-stretch': !fixed
-  }">
+  <div 
+    id="navigation" 
+    ref="navigation"
+    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex"
+    :class="{ 
+      'fixed z-[200] sm:left-0': fixed,
+      ' sm:self-stretch': !fixed,
+      ' sticky top-0 sm:static sm:top-auto': sticking
+    }">
     <div class="w-6 cursor-pointer sm:hidden relative z-[200]" @click="open = !open">
       <div 
         class="h-1 py-2 box-content bg-clip-content w-full relative opacity-100   before:block before:h-1 before:w-full before:absolute before:top-0 before:bg-current after:block after:h-1 after:w-full after:absolute after:bottom-0 after:bg-current before:transition-transform after:transition-transform transition-all bg-white"
@@ -33,7 +37,7 @@
           :to="item.path">
           <li 
             class="nav-item"
-            :class="{ 'current': curRouteName === item.name  }" >
+            :class="{ 'current': routeName === item.name  }" >
               {{ item.title }}
           </li>
         </nuxt-link>
@@ -43,10 +47,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { Component, Vue, Prop, Ref, Watch } from 'nuxt-property-decorator'
 
 @Component
 export default class Navigation extends Vue {
+  @Ref('navigation') private navigation!: HTMLElement
   @Prop({ default: false }) fixed!: boolean
   @Prop({ required: false, default: 'white' }) color!: string
   private open = false
@@ -64,7 +69,21 @@ export default class Navigation extends Vue {
     name: 'apply',
     path: '/apply'
   }]
-  private curRouteName = this.$router.currentRoute.name
+  private observer!: IntersectionObserver
+  private sticking = false
+
+  get routeName()  {
+    return this.$route.name
+  } 
+
+  mounted() {
+    this.observer = new IntersectionObserver(
+      ([entry]) => { this.sticking = !(entry as any).isVisible; console.log(entry);
+        },
+      { threshold: 0.0 }
+    )
+    this.observer.observe(this.navigation)
+  }
 }
 </script>
 

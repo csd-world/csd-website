@@ -36,7 +36,8 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import postcss from 'postcss'
 
-const tailWindClasses = `bg-blue-600 bg-yellow-600 bg-red-600 bg-green-600
+const tailWindClasses = `text-blue-600 text-yellow-600 text-red-600 text-green-600
+                         bg-blue-600 bg-yellow-600 bg-red-600 bg-green-600
                          hover:bg-blue-700 hover:bg-yellow-700 hover:bg-red-700 hover:bg-green-700`
 
 @Component
