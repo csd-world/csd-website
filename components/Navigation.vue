@@ -2,7 +2,7 @@
   <div 
     id="navigation" 
     ref="navigation"
-    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex"
+    class="py-4 sm:pl-5 pr-5 sm:pr-0 w-full justify-end sm:justify-start flex z-[200]"
     :class="{ 
       'fixed z-[200] sm:left-0': fixed,
       ' sm:self-stretch': !fixed,
