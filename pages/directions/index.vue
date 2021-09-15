@@ -2,13 +2,10 @@
   <div class="min-h-screen bg-gray-800 pb-4">
     <DirectionNavigation :navColor="navColor" />
     <div class="container mx-auto px-4">
-      <div ref="introWrapper" class="flex mb-4">
-        <div class="flex flex-col justify-center space-y-4">
-          <h1 class=" font-semibold text-shadow-md">方向介绍</h1>
-          <p class=" text-shadow-sm">{{ introduction }}</p>
-        </div>
-        <img class="sm:block hidden" src="~/assets/discovery.svg" alt="" srcset="">
-      </div>
+      <DirectionHeader 
+        :imgSrc="'~/assets/discovery.svg'"
+        @change="navColorChanged"
+        :introduction="introduction" />
       <div class="grid sm:grid-cols-2 gap-4">
         <div 
           v-for="dir in directions" 
@@ -67,14 +64,18 @@ export default class DirectionsPage extends Vue {
   @Ref('introWrapper') private introWrapper!: HTMLElement
   private navColor = 'white'
 
-  mounted() {
-    const observer = new IntersectionObserver(
-      ([entry]) => { 
-        this.navColor = entry.isIntersecting ? 'white' : 'primary'
-      },
-      { threshold: 0.0 }
-    )
-    observer.observe(this.introWrapper)
+  navColorChanged(newColor: string) {
+    this.navColor = newColor
   }
+
+  // mounted() {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => { 
+  //       this.navColor = entry.isIntersecting ? 'white' : 'primary'
+  //     },
+  //     { threshold: 0.0 }
+  //   )
+  //   observer.observe(this.introWrapper)
+  // }
 }
 </script>
