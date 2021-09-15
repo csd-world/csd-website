@@ -3,8 +3,9 @@
     <DirectionNavigation :navColor="navColor" />
     <div class="container mx-auto px-4">
       <DirectionHeader 
-        :imgSrc="'~/assets/discovery.svg'"
+        :svgName="'discovery'"
         @change="navColorChanged"
+        :title="'方向介绍'"
         :introduction="introduction" />
       <div class="grid sm:grid-cols-2 gap-4">
         <div 
@@ -20,9 +21,9 @@
                          `bg-${dir.color}-600`]" /><span class="font-semibold">{{ dir.name }}</span>
             </h3>
           <p class=" text-gray-600">{{ dir.desc }}</p>
-          <button 
+          <!-- <button 
             :class="[`bg-${dir.color}-600`, `hover:bg-${dir.color}-700`]"
-            class=" px-3 py-2 rounded-lg">了解更多</button>
+            class=" px-3 py-2 rounded-lg">了解更多</button> -->
         </div>
       </div>
     </div>
@@ -39,7 +40,7 @@ const tailWindClasses = `text-blue-600 text-yellow-600 text-red-600 text-green-6
 
 @Component
 export default class DirectionsPage extends Vue {
-  private introduction = `滚滚长江东逝水，浪花淘尽英雄。是非成败转头空，青山依旧在，几度夕阳红。白发渔樵江渚上，惯看秋月春风。一壶浊酒喜相逢，古今多少事，都付笑谈中。`
+  private introduction = `软件部内的学习方向都是当前的热门方向，但我们学习内容很自由，在软件部里你也可以学习到除这些方向之外的东西。在这里你可以得到相关方向学长学姐的细心指导，教会你如何学有所成~`
   private directions = [{
     color: 'yellow',
     icon: 'Game',

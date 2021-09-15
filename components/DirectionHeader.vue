@@ -1,10 +1,11 @@
 <template>
   <div ref="introWrapper" class="flex mb-4">
     <div class="flex flex-col justify-center space-y-4">
-      <h1 class=" font-semibold text-shadow-md">方向介绍</h1>
+      <h1 class=" font-semibold text-shadow-md">{{ title }}</h1>
       <p class=" text-shadow-sm">{{ introduction }}</p>
     </div>
-    <img class="sm:block hidden" :src="imgSrc" alt="" srcset="">
+    <img class="sm:block hidden" 
+      :src="require(`~/assets/svg/${svgName}.svg`)" alt="" srcset="">
   </div>
 </template>
 
@@ -17,11 +18,13 @@ export default class DirectionHeader extends Vue {
 
   @Ref('introWrapper') private introWrapper!: HTMLElement
   @Prop({ required: true }) private introduction!: string
-  @Prop({ required: true }) private imgSrc!: string
+  @Prop({ required: true }) private svgName!: string
+  @Prop({ required: true }) private title!: string
 
 
   @ModelSync('navColor', 'change', { type: String })
   private navColorValue!: string
+
 
   mounted() {
     const observer = new IntersectionObserver(
