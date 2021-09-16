@@ -30,7 +30,7 @@ body {
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-3xl font-bold;
 }
 
 h2 {
@@ -41,6 +41,10 @@ h2::before {
   content: '';
   z-index: -10;
   @apply w-full absolute h-4 -bottom-1 bg-primary;
+}
+
+h3 {
+  @apply text-2xl mb-2 font-semibold;
 }
 
 /* ICONS */

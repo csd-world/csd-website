@@ -68,6 +68,10 @@ export default class Navigation extends Vue {
     name: 'directions',
     path: '/directions'
   }, {
+    title: '朋友',
+    name: 'friends',
+    path: '/friends'
+  }, {
     title: '报名',
     name: 'apply',
     path: '/apply'
