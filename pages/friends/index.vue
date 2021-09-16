@@ -2,15 +2,15 @@
   <div class="bg-gray-200 min-h-screen">
     <div class="flex flex-col bg-primary">
       <Navigation />
-      <div class="container mx-auto flex items-center sm:pb-4 pb-6">
-        <div class="sm:w-2/3 w-full sm:px-0 px-4">
+      <div class="container mx-auto flex items-center sm:pb-4 pb-6 justify-between">
+        <div class="sm:px-0 px-4">
           <h1 class="mb-4">我们的朋友们</h1>
           <p>软件部的发展离不开这些朋友们的支持与鼓励~</p>
         </div>
-        <img class="sm:w-1/3 sm:block w-0 hidden" src="~/assets/svg/friends.svg" alt="">
+        <img class="sm:block hidden" src="~/assets/svg/friends.svg" alt="">
       </div>
     </div>
-    <div class="container mx-auto grid sm:px-0 px-4 sm:grid-cols-3 pt-6 gap-4">
+    <div class="container mx-auto grid sm:px-0 px-4 sm:grid-cols-2 lg:grid-cols-3 pt-6 gap-4">
       <FriendCard
         v-for="friend in friends"
         :key="friend.name"
