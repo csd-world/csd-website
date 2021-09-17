@@ -1,8 +1,11 @@
 <template>
   <a :href="href" target="_blank">
-    <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow flex items-center space-x-2">
-      <img class="h-8" :src="logo" alt="Computer software department logo">
-      <span class="text-gray-800">{{ name }}</span>
+    <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img class="h-8" :src="logo" alt="Computer software department logo">
+        <span class="text-gray-800">{{ name }}</span>
+      </div>
+      <span class="iconfont icon-link text-gray-300 text-xl"></span>
     </div>
   </a>
 </template>
