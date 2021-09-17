@@ -125,7 +125,12 @@ export default class ApplyPage extends Vue {
           email: email.trim().length === 0 ? qq + '@qq.com' : email
         }).then(response => {
           this.loading = false
-          this.$router.push('/apply/success') 
+          if (response.status !== 404) {
+            this.$router.push('/apply/success') 
+          } else {
+            this.applyFailToast('内部错误，请联系群管理员。');
+          }
+          
         }).catch((e) => {
           this.applyFailToast(e)
         })
@@ -141,7 +146,7 @@ export default class ApplyPage extends Vue {
       type: 'danger',
       title: '报名失败',
       message: msg,
-      timeout: false
+      timeout: 10
     })
   }
 }
