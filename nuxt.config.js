@@ -47,6 +47,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ['nuxt-tailvue', { toast: true, toast: { defaults: { containerClasses: [ '!flex-col', '!justify-end' ] } } }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

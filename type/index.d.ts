@@ -141,9 +141,11 @@ export interface rn {
 }
 
 export interface UserModel {
-  hasLearn: boolean,
+  hadLearn: boolean,
   selfIntro: string,
-  studentId: string,
+  studentId: number,
   studentName: string,
-  whyJoin: string
+  whyJoin: string,
+  qq: number,
+  email: string
 }

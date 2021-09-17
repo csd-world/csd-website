@@ -41,14 +41,18 @@
           @submit.prevent.once="handleSubmit(onSubmit($event))"
           class="space-y-4"
           >
-          <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
-            <BaseInput :name="'stdId'" :rules="'required|gradeOne'" :label="'学号'" class="w-64" :type="'number'" />
-            <BaseInput :rules="'required|name'" :name="'stdName'" :label="'姓名'" class="w-32" :type="'text'" />
+          <div class="input-row">
+            <BaseInput :name="'stdId'" :rules="'required|gradeOne'" class=" col-span-1" :label="'学号'" :type="'number'" />
+            <BaseInput :rules="'required|name'" :name="'stdName'" :label="'姓名'"  :type="'text'" />
+          </div>
+          <div class="input-row">
+            <BaseInput :name="'qq'" :rules="'required'" :label="'QQ'" class=" col-span-1" :type="'number'" />
+            <BaseInput :rules="'email'" :name="'email'" :label="'邮箱'"  :type="'text'" />
           </div>
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
-          <button  class="submit">提交报名表</button>
+          <button type="submit" class="submit">提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
           <div class="mb-6"><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
@@ -89,6 +93,7 @@ import { addUser } from '~/utils/api'
 export default class ApplyPage extends Vue {
   private curIndex = 0
   private checked = false
+    $toast: any
   
 
   public onSubmit(e: Event) {
@@ -96,35 +101,52 @@ export default class ApplyPage extends Vue {
     const observer = this.$refs.observer as InstanceType<typeof ValidationObserver> 
 
     observer.validate().then((valid: boolean) => {
+
       if (valid) {
-        const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+        const { stdId, stdName, prgExp, applyReason, qq, email } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+        
         addUser({
-          hasLearn: this.checked,
+          hadLearn: this.checked,
           selfIntro: prgExp,
           studentId: stdId,
           studentName: stdName,
-          whyJoin: applyReason
+          whyJoin: applyReason,
+          qq,
+          email: email.trim().length === 0 ? qq + '@qq.com' : email
         }).then(response => {
           this.$router.push('/apply/success') 
-        }).catch(() => {
-          throw new Error('Unknown errors.')
+        }).catch((e) => {
+          this.applyFailToast(e)
         })
       }
     })
     .catch(e => {
       throw new Error(e)
     })
-    
+  }
 
-    
+  private applyFailToast(msg: string) {
+    this.$toast.show({
+      type: 'danger',
+      title: '报名失败',
+      message: msg,
+      timeout: false
+    })
   }
 }
 
 </script>
 
 <style lang="postcss" scoped>
+  .input-row {
+    @apply grid sm:grid-cols-2 gap-4 sm:gap-12 sm:max-w-md;
+  }
+  /* .input-row {
+    @apply flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col;
+  } */
+
   .submit {
-    @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed font-bold;
+    @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed;
   }
 
   .tab {
