@@ -8,6 +8,9 @@ module.exports = {
   plugins: [
     textShadow
   ],
+  purge: [
+    'node_modules/tv-toast/dist/tv-*.umd.min.js',
+  ],
   theme: {
     extend: {
       transitionProperty: {

@@ -52,7 +52,7 @@
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
-          <button  class="submit">提交报名表</button>
+          <button type="submit" class="submit">提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
           <div class="mb-6"><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
@@ -93,6 +93,7 @@ import { addUser } from '~/utils/api'
 export default class ApplyPage extends Vue {
   private curIndex = 0
   private checked = false
+    $toast: any
   
 
   public onSubmit(e: Event) {
@@ -100,29 +101,37 @@ export default class ApplyPage extends Vue {
     const observer = this.$refs.observer as InstanceType<typeof ValidationObserver> 
 
     observer.validate().then((valid: boolean) => {
+
       if (valid) {
         const { stdId, stdName, prgExp, applyReason, qq, email } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+        
         addUser({
           hadLearn: this.checked,
-          selfInfo: prgExp,
+          selfIntro: prgExp,
           studentId: stdId,
           studentName: stdName,
           whyJoin: applyReason,
           qq,
-          email
+          email: email.trim().length === 0 ? qq + '@qq.com' : email
         }).then(response => {
           this.$router.push('/apply/success') 
-        }).catch(() => {
-          throw new Error('Unknown errors.')
+        }).catch((e) => {
+          this.applyFailToast(e)
         })
       }
     })
     .catch(e => {
       throw new Error(e)
     })
-    
+  }
 
-    
+  private applyFailToast(msg: string) {
+    this.$toast.show({
+      type: 'danger',
+      title: '报名失败',
+      message: msg,
+      timeout: false
+    })
   }
 }
 
