@@ -192,3 +192,9 @@ h3 {
       border-radius: 50%;
   }
 }
+
+label.required::before {
+  @apply text-red-600;
+  content: "*";
+  margin-right: 4px;
+}

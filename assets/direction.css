@@ -1,7 +1,0 @@
-.direction-page {
-  @apply min-h-screen bg-gray-800 pb-4;
-}
-
-.direction-container {
-  @apply container mx-auto px-4;
-}
