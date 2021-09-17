@@ -139,6 +139,7 @@ export default class ApplyPage extends Vue {
           }
           
         }).catch((e) => {
+          this.loading = false
           this.applyFailToast(e)
         })
       }
