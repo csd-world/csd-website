@@ -41,9 +41,13 @@
           @submit.prevent.once="handleSubmit(onSubmit($event))"
           class="space-y-4"
           >
-          <div class="flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col">
-            <BaseInput :name="'stdId'" :rules="'required|gradeOne'" :label="'学号'" class="w-64" :type="'number'" />
-            <BaseInput :rules="'required|name'" :name="'stdName'" :label="'姓名'" class="w-32" :type="'text'" />
+          <div class="input-row">
+            <BaseInput :name="'stdId'" :rules="'required|gradeOne'" class=" col-span-1" :label="'学号'" :type="'number'" />
+            <BaseInput :rules="'required|name'" :name="'stdName'" :label="'姓名'"  :type="'text'" />
+          </div>
+          <div class="input-row">
+            <BaseInput :name="'qq'" :rules="'required'" :label="'QQ'" class=" col-span-1" :type="'number'" />
+            <BaseInput :rules="'email'" :name="'email'" :label="'邮箱'"  :type="'text'" />
           </div>
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
@@ -97,13 +101,15 @@ export default class ApplyPage extends Vue {
 
     observer.validate().then((valid: boolean) => {
       if (valid) {
-        const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
+        const { stdId, stdName, prgExp, applyReason, qq, email } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
         addUser({
           hadLearn: this.checked,
           selfInfo: prgExp,
           studentId: stdId,
           studentName: stdName,
-          whyJoin: applyReason
+          whyJoin: applyReason,
+          qq,
+          email
         }).then(response => {
           this.$router.push('/apply/success') 
         }).catch(() => {
@@ -123,6 +129,13 @@ export default class ApplyPage extends Vue {
 </script>
 
 <style lang="postcss" scoped>
+  .input-row {
+    @apply grid sm:grid-cols-2 gap-4 sm:gap-12 sm:max-w-md;
+  }
+  /* .input-row {
+    @apply flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col;
+  } */
+
   .submit {
     @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed font-bold;
   }
