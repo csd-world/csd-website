@@ -100,7 +100,7 @@ export default class ApplyPage extends Vue {
         const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
         addUser({
           hasLearn: this.checked,
-          selfInfo: prgExp,
+          selfIntro: prgExp,
           studentId: stdId,
           studentName: stdName,
           whyJoin: applyReason
