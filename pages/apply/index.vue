@@ -137,7 +137,7 @@ export default class ApplyPage extends Vue {
   } */
 
   .submit {
-    @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed font-bold;
+    @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed;
   }
 
   .tab {
