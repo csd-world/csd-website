@@ -1,9 +1,8 @@
 <template>
   <a :href="href" target="_blank">
-    <div class="bg-white p-6 rounded-lg space-y-2 shadow hover:shadow-xl transition-shadow">
-      <img class="h-12" :src="require(`~/assets/img/${logo}`)" alt="Computer software department logo">
-      <h4>{{ name }}</h4>
-      <p class=" text-gray-400">{{ intro }}</p>
+    <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow flex items-center space-x-2">
+      <img class="h-8" :src="logo" alt="Computer software department logo">
+      <span class="text-gray-800">{{ name }}</span>
     </div>
   </a>
 </template>
@@ -16,7 +15,6 @@ export default class FriendCard extends Vue {
   @Prop({ required: true }) private href!: string
   @Prop({ required: true }) private logo!: string
   @Prop() private name!: string
-  @Prop() private intro!: string
 }
 </script>
 
