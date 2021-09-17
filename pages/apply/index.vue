@@ -114,6 +114,7 @@ export default class ApplyPage extends Vue {
       if (valid) {
         const { stdId, stdName, prgExp, applyReason, qq, email } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
         
+        this.loading = true
         addUser({
           hadLearn: this.checked,
           selfIntro: prgExp,
