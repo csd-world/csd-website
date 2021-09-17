@@ -51,7 +51,7 @@
           </div>
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
-          <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
+          <BaseTextarea :rules="'required'" :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
           <button type="submit" class="submit">提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
