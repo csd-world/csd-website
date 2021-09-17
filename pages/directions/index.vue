@@ -16,7 +16,7 @@
             :class="[`text-${dir.color}-600`]"
             class=" text-xl ">
               <span 
-                class="text-white iconfont p-2 rounded-full mr-2" 
+                class="text-white iconfont p-2 rounded-full mr-2 font-normal" 
                 :class="['icon-' + dir.icon, 
                          `bg-${dir.color}-600`]" /><span class="font-semibold">{{ dir.name }}</span>
             </h3>
@@ -43,7 +43,7 @@ export default class DirectionsPage extends Vue {
   private introduction = `软件部内的学习方向都是当前的热门方向，但我们学习内容很自由，在软件部里你也可以学习到除这些方向之外的东西。在这里你可以得到相关方向学长学姐的细心指导，教会你如何学有所成~`
   private directions = [{
     color: 'yellow',
-    icon: 'Game',
+    icon: 'game',
     name: '游戏开发',
     desc: '在这个组里，你将学习如何运用引擎进行游戏开发。你可以学习游戏引擎开发/复刻自己心仪游戏，参加很多游戏设计比赛，制作独立游戏，去 BAT 大厂制作游戏。'
   }, {
@@ -58,7 +58,7 @@ export default class DirectionsPage extends Vue {
     desc: '精通移动设备的应用开发，具有很强的实用性。在这里，你可以学到主流的移动开发技术并用来解决很多日常需求，快来一起开发你的专属应用，一起把技术装进口袋吧。'
   }, {
     color: 'red',
-    icon: 'AI',
+    icon: 'ai',
     name: '人工智能',
     desc: '对自然语言处理（语音助手）、计算机视觉（自动驾驶）、数据挖掘（推荐算法）等方向进行学习。在这里你可以汲取学长的学习经验，接触到不同学院的老师、同学。'
   }]

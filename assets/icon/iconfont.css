@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2698146 */
-  src: url('iconfont.woff2?t=1631283016131') format('woff2'),
-       url('iconfont.woff?t=1631283016131') format('woff'),
-       url('iconfont.ttf?t=1631283016131') format('truetype');
+  src: url('iconfont.woff2?t=1631872022262') format('woff2'),
+       url('iconfont.woff?t=1631872022262') format('woff'),
+       url('iconfont.ttf?t=1631872022262') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-link:before {
+  content: "\e62f";
+}
+
+.icon-android:before {
+  content: "\e62a";
+}
+
+.icon-game:before {
+  content: "\e682";
+}
+
 .icon-home:before {
   content: "\e6b5";
 }
@@ -21,20 +33,12 @@
   content: "\e642";
 }
 
-.icon-android:before {
-  content: "\e60e";
-}
-
 .icon-web:before {
   content: "\e935";
 }
 
-.icon-AI:before {
+.icon-ai:before {
   content: "\e608";
-}
-
-.icon-Game:before {
-  content: "\e61f";
 }
 
 .icon-python:before {
