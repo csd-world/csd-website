@@ -54,7 +54,7 @@
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
           <button 
             :class="{ 'loading': loading }"
-            :disabled="loading"  
+            :disabled="true"  
             class="submit flex items-center">
             <BaseLoading v-if="loading" class="mr-1" />
             提交报名表</button>
@@ -66,11 +66,12 @@
       </ValidationObserver>
       <div class="col-span-1">
         <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6 space-y-2">
-          <h4 class="text-xl font-medium">注意事项：</h4>
+          <!-- <h4 class="text-xl font-medium">注意事项：</h4>
           <ul class="list-disc pl-4 space-y-2">
             <li>报名表可以让我们对你有个大概的了解，请务必如实认真填写。</li>
             <li>遇到如提交不了等其他问题，请到群里联系管理员反馈。</li>
-          </ul>
+          </ul> -->
+          <h4 class="text-xl font-medium text-yellow-400">报名系统维护中...</h4>
         </div>
       </div>
     </div>
