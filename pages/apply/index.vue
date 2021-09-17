@@ -48,7 +48,12 @@
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
-          <button  class="submit">提交报名表</button>
+          <button 
+            :class="{ 'loading': loading }"
+            :disabled="loading"  
+            class="submit flex items-center">
+            <BaseLoading v-if="loading" class="mr-1" />
+            提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
           <div class="mb-6"><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
@@ -89,6 +94,7 @@ import { addUser } from '~/utils/api'
 export default class ApplyPage extends Vue {
   private curIndex = 0
   private checked = false
+  private loading = false
   
 
   public onSubmit(e: Event) {
@@ -97,6 +103,7 @@ export default class ApplyPage extends Vue {
 
     observer.validate().then((valid: boolean) => {
       if (valid) {
+        this.loading = true
         const { stdId, stdName, prgExp, applyReason } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
         addUser({
           hasLearn: this.checked,
@@ -105,6 +112,7 @@ export default class ApplyPage extends Vue {
           studentName: stdName,
           whyJoin: applyReason
         }).then(response => {
+          this.loading = false
           this.$router.push('/apply/success') 
         }).catch(() => {
           throw new Error('Unknown errors.')
@@ -123,6 +131,10 @@ export default class ApplyPage extends Vue {
 </script>
 
 <style lang="postcss" scoped>
+  .submit.loading {
+    @apply bg-primary-lighter disabled:bg-primary-lighter
+  }
+
   .submit {
     @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed font-bold;
   }
