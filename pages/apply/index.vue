@@ -38,7 +38,7 @@
         tag="div" 
         class="form">
         <form
-          @submit.prevent.once="handleSubmit(onSubmit($event))"
+          @submit.prevent="handleSubmit(onSubmit($event))"
           class="space-y-4"
           >
           <div class="input-row">
