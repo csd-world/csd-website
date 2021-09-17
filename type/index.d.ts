@@ -141,8 +141,8 @@ export interface rn {
 }
 
 export interface UserModel {
-  hasLearn: boolean,
-  selfIntro: string,
+  hadLearn: boolean,
+  selfInfo: string,
   studentId: string,
   studentName: string,
   whyJoin: string
