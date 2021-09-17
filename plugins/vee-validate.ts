@@ -1,4 +1,4 @@
-import { required } from 'vee-validate/dist/rules'
+import { required, email } from 'vee-validate/dist/rules'
 import { extend, setInteractionMode } from 'vee-validate'
 
 setInteractionMode('custom', ({ errors, value }) => {
@@ -20,6 +20,11 @@ setInteractionMode('custom', ({ errors, value }) => {
 extend('required', {
   ...required,
   message: (name) => `${name}不能为空！`
+})
+
+extend('email', {
+  ...email,
+  message: (name) => `请输入正确的邮箱！`
 })
 
 extend('gradeOne', {
