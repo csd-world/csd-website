@@ -52,7 +52,12 @@
           <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
           <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
           <BaseTextarea :name="'applyReason'" :label="'说说你为什么想加入软件部'" />
-          <button type="submit" class="submit">提交报名表</button>
+          <button 
+            :class="{ 'loading': loading }"
+            :disabled="true"  
+            class="submit flex items-center">
+            <BaseLoading v-if="loading" class="mr-1" />
+            提交报名表</button>
         </form>
         <form v-show="curIndex === 1">
           <div class="mb-6"><p class="text-gray-700">报名暂未开放，请等待后续通知~</p></div>
@@ -61,11 +66,12 @@
       </ValidationObserver>
       <div class="col-span-1">
         <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6 space-y-2">
-          <h4 class="text-xl font-medium">注意事项：</h4>
+          <!-- <h4 class="text-xl font-medium">注意事项：</h4>
           <ul class="list-disc pl-4 space-y-2">
             <li>报名表可以让我们对你有个大概的了解，请务必如实认真填写。</li>
             <li>遇到如提交不了等其他问题，请到群里联系管理员反馈。</li>
-          </ul>
+          </ul> -->
+          <h4 class="text-xl font-medium text-yellow-400">报名系统维护中...</h4>
         </div>
       </div>
     </div>
@@ -91,9 +97,10 @@ import { addUser } from '~/utils/api'
 })
 
 export default class ApplyPage extends Vue {
+  $toast: any
   private curIndex = 0
   private checked = false
-    $toast: any
+  private loading = false
   
 
   public onSubmit(e: Event) {
@@ -114,6 +121,7 @@ export default class ApplyPage extends Vue {
           qq,
           email: email.trim().length === 0 ? qq + '@qq.com' : email
         }).then(response => {
+          this.loading = false
           this.$router.push('/apply/success') 
         }).catch((e) => {
           this.applyFailToast(e)
@@ -144,6 +152,9 @@ export default class ApplyPage extends Vue {
   /* .input-row {
     @apply flex space-y-4 sm:space-y-0 sm:space-x-12 sm:flex-row flex-col;
   } */
+  .submit.loading {
+    @apply bg-primary-lighter disabled:bg-primary-lighter
+  }
 
   .submit {
     @apply  bg-primary py-2 px-3 rounded-lg hover:bg-primary-darker disabled:bg-gray-300 disabled:cursor-not-allowed;
