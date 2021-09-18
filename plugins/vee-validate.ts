@@ -29,7 +29,7 @@ extend('email', {
 
 extend('gradeOne', {
   validate: (value: number) => parseInt(value.toString().slice(0, 2), 10) === 21,
-  message: '请输入正确的学号'
+  message: '请输入正确的大一学号'
 })
 
 extend('name', {

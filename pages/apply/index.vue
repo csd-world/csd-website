@@ -94,7 +94,7 @@ import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { UserModel } from '~/type'
 import { addUser } from '~/utils/api'
-
+import ToastInterface from 'nuxt-tailvue/types/toast'
 
 @Component({
   components: {
@@ -104,7 +104,7 @@ import { addUser } from '~/utils/api'
 })
 
 export default class ApplyPage extends Vue {
-  $toast: any
+  $toast!: ToastInterface
   private curIndex = 0
   private loading = false
   private user: UserModel = {
@@ -131,10 +131,10 @@ export default class ApplyPage extends Vue {
           ...this.user,
           email: this.user.email.trim().length === 0 ? this.user.qq + '@qq.com' : this.user.email
         }).then(response => {
-          this.loading = false
           if (response.status !== 404) {
             this.$router.push('/apply/success') 
           } else {
+            this.loading = false
             this.applyFailToast('内部错误，请联系群管理员。');
           }
           
