@@ -10,22 +10,22 @@
         </div>
         <div class="section section02">
           <div class="section-wrapper">
-            <Section02 />
+            <Section02 v-if="defer(7)"/>
           </div>
         </div>
         <div class="section section03">
           <div class="section-wrapper">
-            <Section03 />
+            <Section03 v-if="defer(8)"/>
           </div>
         </div>
         <div class="section section04">
           <div class="section-wrapper">
-            <Section04 />
+            <Section04 v-if="defer(9)"/>
           </div>
         </div>
         <div class="section section05">
           <div class="section-wrapper">
-            <Section05 />
+            <Section05 v-if="defer(10)"/>
           </div>
         </div>
       </full-page>
@@ -57,6 +57,24 @@ import { options } from '~/type'
         destination
       })
     }
+  }
+
+  private displayPriority = 0
+  private runDisplayPriority(count = 10) {
+    const step = () => {
+      requestAnimationFrame(() => {
+        this.displayPriority++
+        if (this.displayPriority < count) step()
+      })
+    }
+    step()
+  }
+  private defer(priority: number) {
+    return this.displayPriority >= priority
+  }
+
+  mounted() {
+    this.runDisplayPriority()
   }
 }
 </script>
