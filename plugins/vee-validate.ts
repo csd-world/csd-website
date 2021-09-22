@@ -19,7 +19,7 @@ setInteractionMode('custom', ({ errors, value }) => {
 
 extend('required', {
   ...required,
-  message: (name) => `${name}不能为空！`
+  message: (name) => `该项不能为空！`
 })
 
 extend('email', {

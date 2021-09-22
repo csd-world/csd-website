@@ -59,6 +59,7 @@ import { UserModel } from '~/type'
   components: { ValidationObserver }
 })
 export default class ApplyFormOne extends mixins(applyMixin) {
+  grade: 1 | 2 = 1
   user: UserModel = {
     hadLearn: false,
     selfIntro: '',

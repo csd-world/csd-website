@@ -8,6 +8,7 @@ import { addUser } from "~/utils/api"
 class ApplyMixin extends Vue {
   private loading = false
   user!: UserModel
+  grade!: 1 | 2
 
 
   @Emit()
@@ -27,7 +28,7 @@ class ApplyMixin extends Vue {
         addUser({
           ...this.user,
           email: this.user.email.trim().length === 0 ? this.user.qq + '@qq.com' : this.user.email
-        }).then(response => {
+        }, this.grade).then(response => {
           if (response.status !== 404) {
             this.$router.push('/apply/success') 
           } else {
