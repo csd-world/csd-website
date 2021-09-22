@@ -29,7 +29,7 @@
           v-model="user.selfIntro" 
           :rules="'required'"
           :name="'prgExp'"
-          :label="'聊聊你学过的东西，开发过哪些项目'" />
+          :label="'聊聊你学过的东西，以及参与过的项目'" />
         <BaseTextarea
           v-model="user.whyJoin"
           :rules="'required'"
