@@ -11,7 +11,7 @@
     <input 
       v-model="inputValue"
       @mousewheel.prevent=""
-      class="bg-gray-100 rounded-lg h-9 text-gray-700 outline-none border-2 border-gray-100 focus:border-primary px-2 text-sm" :type="type" :name="name">
+      class="bg-gray-100 rounded-lg h-9 text-gray-700 outline-none border-2 border-gray-100 focus:border-primary px-3 text-sm" :type="type" :name="name">
     <BaseInputError v-if="validated && invalid" :msg="errors[0]" />
   </ValidationProvider>
 </template>

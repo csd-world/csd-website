@@ -147,5 +147,6 @@ export interface UserModel {
   studentName: string,
   whyJoin: string,
   qq: string,
-  email: string
+  email: string,
+  direction?: '' | 'web' | 'game' | 'ai' | 'mobile'
 }

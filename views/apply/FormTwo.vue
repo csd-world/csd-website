@@ -18,6 +18,13 @@
           <BaseInput v-model="user.qq" :name="'qq'" :rules="'required'" :label="'QQ'" class=" col-span-1" :type="'number'" />
           <BaseInput v-model="user.email" :rules="'required|email'" :name="'email'" :label="'邮箱'"  :type="'text'" />
         </div>
+        <div class="input-row">
+          <BaseSelect 
+            v-model="user.direction"
+            :rules="'required'"
+            :label="'方向'"
+            :options="directionOptions" />
+        </div>
         <BaseTextarea
           v-model="user.selfIntro" 
           :rules="'required'"
@@ -40,7 +47,7 @@
       <div class=" bg-white mt-4 sm:mt-0 sm:relative sm:top-32 rounded-lg text-gray-600 p-6 space-y-2">
         <h4 class="text-xl font-medium">注意事项：</h4>
         <ul class="list-disc pl-4 space-y-2">
-          <li>报名表的信息尤为关键，这将是我们决定是否给你发送面试邮件的重要依据。</li>
+          <li>报名表的信息尤为关键，这是我们决定是否给你发送面试邮件的重要依据。</li>
           <li>遇到如提交不了等其他问题，请到群里联系管理员反馈。</li>
         </ul>
       </div>
@@ -52,20 +59,36 @@
 import { Component, mixins, Ref } from 'nuxt-property-decorator'
 import applyMixin from '~/mixins/applyMixin'
 import { ValidationObserver } from 'vee-validate'
-import '~/styles/applyForm.css'
+import '~/styles/apply-form.css'
 import { UserModel } from '~/type'
 
 @Component({
   components: { ValidationObserver }
 })
-export default class ApplyFormOne extends mixins(applyMixin) {
+export default class ApplyFormTwo extends mixins(applyMixin) {
   user: UserModel = {
     selfIntro: '',
     studentId: '',
     studentName: '',
     whyJoin: '',
     qq: '',
-    email: ''
+    email: '',
+    direction: ''
   }
+
+  private directionOptions = [{
+    name: "Web 开发",
+    value: "web"
+  }, {
+    name: "游戏开发",
+    value: "game"
+  }, {
+    name: "人工智能",
+    value: "ai"
+  }, {
+    name: "移动开发",
+    value: "mobile"
+  }]
+
 }
 </script>

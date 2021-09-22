@@ -52,7 +52,7 @@
 import { Component, mixins, Ref } from 'nuxt-property-decorator'
 import applyMixin from '~/mixins/applyMixin'
 import { ValidationObserver } from 'vee-validate'
-import '~/styles/applyForm.css'
+import '~/styles/apply-form.css'
 import { UserModel } from '~/type'
 
 @Component({
