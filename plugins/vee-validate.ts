@@ -19,7 +19,7 @@ setInteractionMode('custom', ({ errors, value }) => {
 
 extend('required', {
   ...required,
-  message: (name) => `${name}不能为空！`
+  message: (name) => `该项不能为空！`
 })
 
 extend('email', {
@@ -30,6 +30,14 @@ extend('email', {
 extend('gradeOne', {
   validate: (value: number) => parseInt(value.toString().slice(0, 2), 10) === 21,
   message: '请输入正确的大一学号'
+})
+
+extend('gradeTwo', {
+  validate: (value: number) => {
+    const grade = parseInt(value.toString().slice(0, 2), 10)
+    return grade === 21 || grade === 20
+  },
+  message: '请输入正确学号'
 })
 
 extend('name', {

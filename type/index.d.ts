@@ -141,11 +141,12 @@ export interface rn {
 }
 
 export interface UserModel {
-  hadLearn: boolean,
+  hadLearn?: boolean,
   selfIntro: string,
   studentId: string,
   studentName: string,
   whyJoin: string,
   qq: string,
-  email: string
+  email: string,
+  direction?: '' | 'web' | 'game' | 'ai' | 'mobile'
 }

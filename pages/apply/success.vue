@@ -26,9 +26,10 @@
               <span>返回首页</span>
             </BaseButton>
             <BaseButton
+              :icon="'link'"
               :link="'https://oj.dsstudio.tech/problem'"
-              class="text-white"
-              :color="'primary-lighter'">
+              class="text-white practice"
+              :color="'primary'">
               <span>开始练习</span>
             </BaseButton>
           </div>
@@ -39,11 +40,8 @@
 
 <script lang='ts'>
 import lottie, { AnimationItem } from 'lottie-web'
-import { Component, Vue, mixins, Ref } from 'nuxt-property-decorator'
+import { Component, Vue, Ref } from 'nuxt-property-decorator'
 import party from 'party-js'
-import { Emitter } from 'party-js/lib/particles/emitter'
-import { ModuleBuilder } from 'party-js/lib/systems/modules'
-import { SourceSampler } from 'party-js/lib/systems/sources'
 import { ConfettiConfiguration } from 'party-js/lib/templates/confetti'
 
 const animationData = () => import('~/assets/json/success.json' as any)
@@ -75,6 +73,12 @@ export default class SuccessPage extends Vue {
   }
 }
 </script>
+
+<style lang="postcss">
+  .practice .iconfont {
+    font-size: .8rem;
+  }
+</style>
 
 <style lang="postcss" scoped>
 

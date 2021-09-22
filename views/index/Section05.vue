@@ -31,5 +31,8 @@
 </template>
 
 <script lang='ts'>
+import { Component, Vue } from 'nuxt-property-decorator'
 
+@Component
+export default class Section05 extends Vue {}
 </script>

@@ -37,8 +37,17 @@
 import bus from '~/utils/bus'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { options } from '~/type'
+import { Section01, Section02, Section03, Section04, Section05 } from '~/views/index'
 
-@Component
+@Component({
+  components: {
+    Section01,
+    Section02,
+    Section03,
+    Section04,
+    Section05
+  }
+})
   export default class Index extends Vue {
   private options: options = {
     anchors: ['welcome', 'free', 'creative', 'comehere', 'waitforyou'],

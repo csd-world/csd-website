@@ -4,6 +4,8 @@ const BASE_URL = 'https://rioa.yuuza.net'
 const obj2Params = (obj: Object) => Object.entries(obj).map(([key, val]) => `${key}=${val}`).join('&')
 
 function postData<T>(url: string, data: T) {
+  console.log('run there');
+  
   return fetch(BASE_URL + url + '?' + obj2Params(data), {
     method: 'POST',
     headers: {
@@ -23,6 +25,9 @@ function postData<T>(url: string, data: T) {
   })
 }
 
-export function addUser(data: UserModel) {
-  return postData<UserModel>('/adduser', data)
+export function addUser(data: UserModel, grade: 1 | 2) {
+  return [
+    () => postData<UserModel>('/adduser', data), 
+    () => postData<UserModel>('/adduser/g2', data)
+  ][grade - 1]()
 }
