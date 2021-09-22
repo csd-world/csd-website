@@ -32,6 +32,14 @@ extend('gradeOne', {
   message: '请输入正确的大一学号'
 })
 
+extend('gradeTwo', {
+  validate: (value: number) => {
+    const grade = parseInt(value.toString().slice(0, 2), 10)
+    return grade === 21 || grade === 20
+  },
+  message: '请输入正确学号'
+})
+
 extend('name', {
   validate: (value: string) => !!value.match(new RegExp(`^[\u4e00-\u9fa5]+(·[\u4e00-\u9fa5]+)*$`)),
   message: '请输入正确的姓名'

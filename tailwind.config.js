@@ -10,6 +10,13 @@ module.exports = {
   ],
   purge: [
     'node_modules/tv-toast/dist/tv-*.umd.min.js',
+    './components/**/*.{vue}',
+    './layouts/**/*.vue',
+    './views/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './styles/**/*.css',
   ],
   theme: {
     extend: {
