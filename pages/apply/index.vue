@@ -163,11 +163,11 @@ export default class ApplyPage extends Vue {
   }
 
   .tab {
-    @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-opacity-20;
+    @apply flex-grow text-center py-2 sm:py-3 bg-black bg-opacity-40 rounded-t-lg text-sm cursor-pointer hover:bg-white hover:text-primary transition;
   }
 
   .tab.current {
-    @apply bg-black bg-opacity-[0.25] hover:bg-opacity-20;
+    @apply bg-black bg-opacity-[0.25] hover:bg-white;
   }
 
   h3 {
