@@ -42,8 +42,8 @@
 import { Component, Vue, Watch } from 'nuxt-property-decorator' 
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import ToastInterface from 'nuxt-tailvue/types/toast'
-import ApplyFormOne from '~/views/ApplyFormOne.vue'
-import ApplyFormTwo from '~/views/ApplyFormTwo.vue'
+import ApplyFormOne from '~/views/apply/FormOne.vue'
+import ApplyFormTwo from '~/views/apply/FormTwo.vue'
 
 @Component({
   components: {
