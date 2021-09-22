@@ -1,4 +1,4 @@
-import { required } from 'vee-validate/dist/rules'
+import { required, email } from 'vee-validate/dist/rules'
 import { extend, setInteractionMode } from 'vee-validate'
 
 setInteractionMode('custom', ({ errors, value }) => {
@@ -22,9 +22,14 @@ extend('required', {
   message: (name) => `${name}不能为空！`
 })
 
+extend('email', {
+  ...email,
+  message: (name) => `请输入正确的邮箱！`
+})
+
 extend('gradeOne', {
   validate: (value: number) => parseInt(value.toString().slice(0, 2), 10) === 21,
-  message: '请输入正确的学号'
+  message: '请输入正确的大一学号'
 })
 
 extend('name', {

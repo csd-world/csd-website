@@ -38,20 +38,23 @@
         tag="div" 
         class="form">
         <form
-          @submit.prevent.once="handleSubmit(onSubmit($event))"
+          @submit.prevent="handleSubmit(onSubmit($event))"
           class="space-y-4"
           >
           <div class="input-row">
-            <BaseInput :name="'stdId'" :rules="'required|gradeOne'" class=" col-span-1" :label="'学号'" :type="'number'" />
-            <BaseInput :rules="'required|name'" :name="'stdName'" :label="'姓名'"  :type="'text'" />
+            <BaseInput v-model="user.studentId" :name="'stdId'" :rules="'required|gradeOne'" class=" col-span-1" :label="'学号'" :type="'number'" />
+            <BaseInput v-model="user.studentName" :rules="'required|name'" :name="'stdName'" :label="'姓名'"  :type="'text'" />
           </div>
           <div class="input-row">
-            <BaseInput :name="'qq'" :rules="'required'" :label="'QQ'" class=" col-span-1" :type="'number'" />
-            <BaseInput :rules="'email'" :name="'email'" :label="'邮箱'"  :type="'text'" />
+            <BaseInput v-model="user.qq" :name="'qq'" :rules="'required'" :label="'QQ'" class=" col-span-1" :type="'number'" />
+            <BaseInput v-model="user.email" :rules="'email'" :name="'email'" :label="'邮箱'"  :type="'text'" />
           </div>
-          <BaseCheckbox v-model="checked" :label="'我有编程基础'" />
-          <BaseTextarea v-show="checked" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
-          <BaseTextarea 
+          <BaseCheckbox v-model="user.hadLearn" :label="'我有编程基础'" />
+          <BaseTextarea
+            v-model="user.selfIntro" 
+            v-show="user.hadLearn" :name="'prgExp'" :label="'聊聊你学过的东西，以及用来做过哪些有趣的事'" />
+          <BaseTextarea
+            v-model="user.whyJoin"
             :rules="'required'"
             :name="'applyReason'" 
             :label="'说说你为什么想加入软件部'" />
@@ -89,7 +92,9 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'nuxt-property-decorator' 
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { UserModel } from '~/type'
 import { addUser } from '~/utils/api'
+import ToastInterface from 'nuxt-tailvue/types/toast'
 
 @Component({
   components: {
@@ -99,10 +104,18 @@ import { addUser } from '~/utils/api'
 })
 
 export default class ApplyPage extends Vue {
-  $toast: any
+  $toast!: ToastInterface
   private curIndex = 0
-  private checked = false
   private loading = false
+  private user: UserModel = {
+    hadLearn: false,
+    selfIntro: '',
+    studentId: '',
+    studentName: '',
+    whyJoin: '',
+    qq: '',
+    email: ''
+  }
   
 
   public onSubmit(e: Event) {
@@ -112,20 +125,21 @@ export default class ApplyPage extends Vue {
     observer.validate().then((valid: boolean) => {
 
       if (valid) {
-        const { stdId, stdName, prgExp, applyReason, qq, email } = Object.fromEntries(new FormData(e.target as HTMLFormElement) as any) 
         
+        this.loading = true
         addUser({
-          hadLearn: this.checked,
-          selfIntro: prgExp,
-          studentId: stdId,
-          studentName: stdName,
-          whyJoin: applyReason,
-          qq,
-          email: email.trim().length === 0 ? qq + '@qq.com' : email
+          ...this.user,
+          email: this.user.email.trim().length === 0 ? this.user.qq + '@qq.com' : this.user.email
         }).then(response => {
-          this.loading = false
-          this.$router.push('/apply/success') 
+          if (response.status !== 404) {
+            this.$router.push('/apply/success') 
+          } else {
+            this.loading = false
+            this.applyFailToast('内部错误，请联系群管理员。');
+          }
+          
         }).catch((e) => {
+          this.loading = false
           this.applyFailToast(e)
         })
       }
@@ -140,7 +154,7 @@ export default class ApplyPage extends Vue {
       type: 'danger',
       title: '报名失败',
       message: msg,
-      timeout: false
+      timeout: 10
     })
   }
 }

@@ -15,7 +15,12 @@ function postData<T>(url: string, data: T) {
     mode: 'cors',
     redirect: 'follow'
   })
-  .then(response => response.json())
+  .then(response => {
+    if (response.status !== 200) {
+      throw new Error('内部错误，请联系管理员。')
+    } 
+    else return response.json()
+  })
 }
 
 export function addUser(data: UserModel) {

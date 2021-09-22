@@ -9,7 +9,7 @@
       :class="{ 'required': rules.includes('required') }"
       class="text-gray-700 mb-2" :for="name">{{ label }}</label>
     <input 
-      v-model="model"
+      v-model="inputValue"
       @mousewheel.prevent=""
       class="bg-gray-100 rounded-lg h-9 text-gray-700 outline-none border-2 border-gray-100 focus:border-primary px-2 text-sm" :type="type" :name="name">
     <BaseInputError v-if="validated && invalid" :msg="errors[0]" />
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, ModelSync } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, ModelSync, VModel } from 'nuxt-property-decorator'
 import { ValidationProvider } from 'vee-validate'
 
 @Component({
@@ -31,7 +31,7 @@ export default class BaseInput extends Vue {
   @Prop({ required: true }) readonly type!: string
   @Prop({ required: true }) readonly name!: string
   @Prop({ required: false }) readonly rules!: string
-  private model: string = ''
+  @VModel() inputValue!: string | number
 }
 </script>
 
