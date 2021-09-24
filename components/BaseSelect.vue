@@ -46,7 +46,7 @@
       -->
       <ul 
         v-if="showOption"
-        class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-sm overflow-auto focus:outline-none" 
+        class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-sm overflow-auto focus:outline-none ring-1 ring-gray-200" 
         tabindex="-1"
         role="listbox"
         aria-labelledby="listbox-label"
