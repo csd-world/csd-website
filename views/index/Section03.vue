@@ -4,7 +4,7 @@
     <div class="triangle triangle2"></div>
     <div class="triangle triangle3"></div>
     <div class="triangle triangle4"></div>
-    <div class="flex-1 relative sm:mt-12">
+    <div class="flex-[0.8] relative sm:mt-12">
       <div class="pb-full" style="padding-bottom: 100%">
         <div
           class="absolute h-full w-5/6 bg-yellow-50 rounded-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
