@@ -31,21 +31,21 @@ import eventMixin from "~/mixins/eventMixin";
 import { Component, Vue, mixins, Ref } from "nuxt-property-decorator";
 
 const animationData = () => import("~/assets/json/blogging.json" as any);
+let anim: null | AnimationItem = null;
 
 @Component
 export default class Section02 extends mixins(eventMixin) {
   @Ref("animation") readonly container!: HTMLElement;
-  private anim: null | AnimationItem = null;
   index = 1;
   play() {
-    if (this.anim !== null) this.anim.play();
+    if (anim !== null) anim.play();
   }
   stop() {
-    if (this.anim !== null) this.anim.stop();
+    if (anim !== null) anim.stop();
   }
   mounted() {
     animationData().then(data => {
-      this.anim = lottie.loadAnimation({
+      anim = lottie.loadAnimation({
         container: this.container,
         animationData: data,
         renderer: "svg",

@@ -38,6 +38,7 @@ import lottie from "lottie-web";
 import eventMixin from "~/mixins/eventMixin";
 
 const animationData = () => import("~/assets/json/growth.json" as any);
+let anim: null | AnimationItem = null;
 
 @Component
 export default class Section04 extends mixins(eventMixin) {
@@ -45,14 +46,14 @@ export default class Section04 extends mixins(eventMixin) {
   private anim: null | AnimationItem = null;
   index = 3;
   play() {
-    if (this.anim !== null) this.anim.play();
+    if (anim !== null) anim.play();
   }
   stop() {
-    if (this.anim !== null) this.anim.stop();
+    if (anim !== null) anim.stop();
   }
   mounted() {
     animationData().then(data => {
-      this.anim = lottie.loadAnimation({
+      anim = lottie.loadAnimation({
         container: this.container,
         animationData: data,
         renderer: "svg",
