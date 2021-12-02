@@ -1,16 +1,20 @@
 <template>
   <div class="flex flex-col sm:flex-row sm:space-x-4 relative">
     <div
-      class="absolute p-1/8 bg-white bg-opacity-20 rounded-1/4 top-[-35%] left-[65%] sm:top-[-34%] sm:left-[25%]"
+      class="absolute p-1/8 bg-white bg-opacity-20 rounded-1/4 
+      top-[-35%] left-[65%] sm:top-[-34%] sm:left-[25%]"
     ></div>
     <div
-      class="absolute p-1/10 bg-white bg-opacity-20 rounded-1/4 top-[-19%] left-[53%] sm:top-[11%] sm:left-[17%]"
+      class="absolute p-1/10 bg-white bg-opacity-20 rounded-1/4 
+      top-[-19%] left-[53%] sm:top-[11%] sm:left-[17%]"
     />
     <div
-      class="absolute p-1/12 bg-white bg-opacity-20 rounded-1/4 top-[130%] left-[-5%] sm:top-[80%] sm:left-[0%]"
+      class="absolute p-1/12 bg-white bg-opacity-20 rounded-1/4 
+      top-[130%] left-[-5%] sm:top-[80%] sm:left-[0%]"
     />
     <div
-      class="absolute p-1/12 bg-white bg-opacity-20 rounded-1/4 top-[120%] left-[5%] sm:top-[110%] sm:left-[-10%]"
+      class="absolute p-1/12 bg-white bg-opacity-20 rounded-1/4 
+      top-[120%] left-[5%] sm:top-[110%] sm:left-[-10%]"
     />
     <HeroText
       title="一个自由的技术社团"
@@ -20,38 +24,13 @@
       <div
         class="absolute px-[40%] py-[30%] inset-0 bg-yellow-50 rounded-1/2"
       ></div>
-      <div class="transform scale-125" ref="animation"></div>
+      <div class="transform scale-125" ref="animationContainer"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import lottie, { AnimationItem } from "lottie-web";
-import eventMixin from "~/mixins/eventMixin";
-import { Component, Vue, mixins, Ref } from "nuxt-property-decorator";
-
+import animationMixin from '~/mixins/animationMixin'
 const animationData = () => import("~/assets/json/blogging.json" as any);
-let anim: null | AnimationItem = null;
-
-@Component
-export default class Section02 extends mixins(eventMixin) {
-  @Ref("animation") readonly container!: HTMLElement;
-  index = 1;
-  play() {
-    if (anim !== null) anim.play();
-  }
-  stop() {
-    if (anim !== null) anim.stop();
-  }
-  mounted() {
-    animationData().then(data => {
-      anim = lottie.loadAnimation({
-        container: this.container,
-        animationData: data,
-        renderer: "svg",
-        autoplay: false
-      });
-    });
-  }
-}
+export default animationMixin(animationData, 1).extend()
 </script>

@@ -7,11 +7,13 @@
     <div class="flex-[0.8] relative sm:mt-12">
       <div class="pb-full" style="padding-bottom: 100%">
         <div
-          class="absolute h-full w-5/6 bg-yellow-50 rounded-1/2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute h-full w-5/6 bg-yellow-50 rounded-1/2 top-1/2 
+          left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
         <div
-          class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          ref="animation"
+          class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform 
+          -translate-x-1/2 -translate-y-1/2"
+          ref="animationContainer"
         ></div>
       </div>
     </div>
@@ -23,36 +25,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, mixins, Ref } from "nuxt-property-decorator";
-import { AnimationItem } from "lottie-web";
-import lottie from "lottie-web";
-import eventMixin from "~/mixins/eventMixin";
-
+import animationMixin from "~/mixins/animationMixin";
 const animationData = () => import("~/assets/json/creative.json" as any);
-let anim: null | AnimationItem = null;
-
-@Component
-export default class Section03 extends mixins(eventMixin) {
-  @Ref("animation") readonly container!: HTMLElement;
-  private anim: null | AnimationItem = null;
-  index = 2;
-  play() {
-    if (anim !== null) anim.play();
-  }
-  stop() {
-    if (anim !== null) anim.stop();
-  }
-  mounted() {
-    animationData().then(data => {
-      anim = lottie.loadAnimation({
-        container: this.container,
-        animationData: data,
-        renderer: "svg",
-        autoplay: false
-      });
-    });
-  }
-}
+export default animationMixin(animationData, 2).extend();
 </script>
 
 <style lang="postcss">
