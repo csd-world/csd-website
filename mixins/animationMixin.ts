@@ -4,8 +4,7 @@ import { rn } from "~/type";
 import bus from "~/utils/bus";
 
 function animationMixin(animationImport: () => Promise<any>, index: number) {
-  let animation: AnimationItem | null = null;
-  let loaded = false;
+  let lazyAnimation: AsyncLazy<AnimationItem> | null = null;
   return Vue.extend({
     data() {
       return {
@@ -14,39 +13,32 @@ function animationMixin(animationImport: () => Promise<any>, index: number) {
     },
     methods: {
       async play() {
-        if (!animation) {
-          await this.loadAnimation();
-          animation!.play();
-        } else {
-          animation!.play();
-        }
+        (await lazyAnimation!.get()).play();
       },
       async stop() {
-        if (!animation) {
-          await this.loadAnimation();
-        } else {
-          animation!.stop();
-        }
-      },
-      loadAnimation() {
-        if (!animation && !loaded) {
-          loaded = true;
-          return animationImport().then(data => {
-            animation = lottie.loadAnimation({
-              container: this.$refs.animationContainer as HTMLElement,
-              animationData: data,
-              renderer: "svg",
-              autoplay: false
-            });
-          });
-        }
-        return;
+        lazyAnimation!.value?.stop();
       }
     },
     mounted() {
       if (!this.$refs.animationContainer) {
         throw new Error("animationContainer ref is not found");
       }
+
+      lazyAnimation = new AsyncLazy(() =>
+        animationImport()
+          .then(data => {
+            return lottie.loadAnimation({
+              container: this.$refs.animationContainer as HTMLElement,
+              animationData: data,
+              renderer: "svg",
+              autoplay: false
+            });
+          })
+          .catch(() => {
+            throw new Error("Failed to load animation");
+          })
+      );
+
       bus.$on(
         "onLeave",
         ({ origin, destination }: { origin: rn; destination: rn }) => {
@@ -59,15 +51,35 @@ function animationMixin(animationImport: () => Promise<any>, index: number) {
         ({ origin, destination }: { origin: rn; destination: rn }) => {
           if (!origin) return;
           if (destination.index === this.index) {
-            animation?.isLoaded ? null : this.play(); 
+            this.play();
           }
           if (origin.index === this.index) {
             this.stop();
           }
         }
       );
-    },
+    }
   });
+}
+
+class AsyncLazy<T> {
+  private promise: Promise<T> | undefined = undefined;
+  private _value: T | undefined = undefined;
+  get value() {
+    return this._value;
+  }
+  get loaded() {
+    return this._value !== undefined;
+  }
+  constructor(readonly fn: () => Promise<T>) {}
+  public get() {
+    if (!this.promise)
+      this.promise = (async () => {
+        this._value = await this.fn();
+        return this._value!;
+      })();
+    return this.promise;
+  }
 }
 
 export default animationMixin;
