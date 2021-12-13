@@ -24,7 +24,9 @@
       <div
         class="absolute px-[40%] py-[30%] inset-0 bg-yellow-50 rounded-1/2"
       ></div>
-      <div class="transform scale-125" ref="animationContainer"></div>
+      <div class="transform scale-125" ref="animationContainer">
+        <img src="/blogging.webp" alt="Blogging">
+      </div>
     </div>
   </div>
 </template>

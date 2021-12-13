@@ -27,6 +27,7 @@ function animationMixin(animationImport: () => Promise<any>, index: number) {
       lazyAnimation = new AsyncLazy(() =>
         animationImport()
           .then(data => {
+            (this.$refs.animationContainer! as HTMLElement).innerHTML = ''
             return lottie.loadAnimation({
               container: this.$refs.animationContainer as HTMLElement,
               animationData: data,

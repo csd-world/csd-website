@@ -12,9 +12,11 @@
         ></div>
         <div
           class="absolute h-[140%] w-[140%] top-1/2 left-1/2 transform 
-          -translate-x-1/2 -translate-y-1/2"
+          -translate-x-1/2 -translate-y-1/2 flex items-center"
           ref="animationContainer"
-        ></div>
+        >
+          <img src="/creative.webp" alt="Creative">
+        </div>
       </div>
     </div>
     <HeroText
