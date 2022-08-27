@@ -12,7 +12,7 @@
         <BaseButton
           :color="'primary'"
           :icon="'QQ'"
-          :link="'https://qm.qq.com/cgi-bin/qm/qr?k=qFBqHqGYgwYHTiSgq-1P82WSQ2LsUcI2&jump_from=webapi'">
+          :link="'https://jq.qq.com/?_wv=1027&k=8l0TaHCJ'">
           <span>加入群聊</span>
         </BaseButton>
         <BaseButton
