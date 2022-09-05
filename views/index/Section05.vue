@@ -29,7 +29,7 @@
         <BaseButton
           :color="'primary'"
           :icon="'QQ'"
-          :link="'https://jq.qq.com/?_wv=1027&k=imP5b1Yu'">
+          :link="'https://jq.qq.com/?_wv=1027&k=8l0TaHCJ'">
           <span>加入群聊</span>
         </BaseButton>
       </div>
