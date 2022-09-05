@@ -60,7 +60,7 @@ export default class DirectionsPage extends Vue {
     color: 'red',
     icon: 'ai',
     name: '人工智能',
-    desc: '对自然语言处理（语音助手）、计算机视觉（自动驾驶）、数据挖掘（推荐算法）等方向进行学习。在这里你可以汲取学长的学习经验，接触到不同学院的老师、同学。'
+    desc: ' 这是一个气氛活跃，对人工智能有着极高热情的小组。在这里，有学长引导你入门看似遥不可及的人工智能技术，跟大佬一起探讨人工智能相关的知识算法，对自然语言处理（语音助手）、计算机视觉（自动驾驶）、数据挖掘（推荐算法）等方向进行学习，还可以动手实践有趣的人工智能小项目。在这里你可以汲取学长的学习经验，接触到不同学院的老师、同学。'
   }]
   @Ref('introWrapper') private introWrapper!: HTMLElement
   private navColor = 'white'
