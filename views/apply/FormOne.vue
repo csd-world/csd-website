@@ -58,6 +58,8 @@ import { UserModel } from '~/type'
 @Component({
   components: { ValidationObserver }
 })
+
+
 export default class ApplyFormOne extends mixins(applyMixin) {
   grade: 1 | 2 = 1
   user: UserModel = {

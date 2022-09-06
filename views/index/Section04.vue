@@ -18,7 +18,7 @@
     />
     <HeroText
       title="你也可以成为技术达人"
-      content="软件部每个方向都有相应的培养方案和学习资源，助你赢在大学生活的起跑线上。"
+      content="软件部每个方向都有相应的培养方案和学习资源，助你赢在大学生活的起跑线上。软件部不问出处，只要你想要学习it方面的技术，愿意和我们一起探讨技术，团队合作共同进步，软件部都欢迎你的加入。"
     />
     <div class="flex-1 relative mt-0 sm:mt-16">
       <div class="pb-full" style="padding-bottom: 100%">

@@ -26,12 +26,21 @@
         <!-- <div class="relative px-1/6 py-1/4 sm:px-1/8 sm:py-[0] !mt-8 !mb-6 bg-yellow-50 rounded-1/2">
           <img class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]" src="~/assets/svg/welcome.svg">
         </div> -->
-        <BaseButton
-          :color="'primary'"
-          :icon="'QQ'"
-          :link="'https://jq.qq.com/?_wv=1027&k=imP5b1Yu'">
+
+        <div class="space-x-2">
+          <BaseButton
+            :color="'primary'"
+            :icon="'QQ'"
+            :link="'https://jq.qq.com/?_wv=1027&k=8l0TaHCJ'">
           <span>加入群聊</span>
-        </BaseButton>
+          </BaseButton>
+          <BaseButton
+            :border="2"
+            :link="'https://oj.dsstudio.tech/'"
+          >
+          <span>OJ练习</span>
+          </BaseButton>
+        </div>
       </div>
     </div>
     <Footer />
@@ -40,6 +49,7 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'nuxt-property-decorator'
+import BaseButton from '~/components/BaseButton.vue';
 
 @Component
 export default class Section05 extends Vue {}
